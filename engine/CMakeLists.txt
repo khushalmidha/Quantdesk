@@ -31,8 +31,11 @@ if(QUANTDESK_BUILD_TESTS)
 
   add_executable(order_book_tests tests/order_book_tests.cpp)
   target_link_libraries(order_book_tests PRIVATE quantdesk_engine GTest::gtest_main)
+  add_executable(risk_engine_tests tests/risk_engine_tests.cpp)
+  target_link_libraries(risk_engine_tests PRIVATE quantdesk_engine GTest::gtest_main)
   include(GoogleTest)
   gtest_discover_tests(order_book_tests)
+  gtest_discover_tests(risk_engine_tests)
 endif()
 
 if(QUANTDESK_BUILD_BENCHMARKS)
