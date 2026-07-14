@@ -1,14 +1,16 @@
-"""Export QuantDesk dashboard JSON from raw market data or a deterministic demo run.
+"""Export QuantDesk dashboard JSON.
 
-The dashboard intentionally consumes a stable JSON contract. This exporter is the
-adapter layer: raw inputs can change, but the public site does not need rewrites.
+The public dashboard consumes a stable static JSON contract. This script is the
+adapter layer:
+
+- demo: deterministic preview data, visibly labelled as demo.
+- csv: browser-ready preview from normalized trade/tick CSV.
+- engine: real backtester output pass-through, without regenerating book/fills/P&L.
 
 Examples:
     python research/export_dashboard_data.py --mode demo --out dashboard/public/data
     python research/export_dashboard_data.py --mode csv --input data/trades.csv --out dashboard/public/data
-
-CSV mode accepts the normalized columns already used by data_loader.py:
-timestamp, price, quantity, side
+    python research/export_dashboard_data.py --mode engine --input research/output/session_run.json --out dashboard/public/data
 """
 
 from __future__ import annotations
@@ -25,6 +27,9 @@ from typing import Any
 
 
 DEFAULT_START_MS = int(datetime(2026, 7, 14, 9, 30, tzinfo=timezone.utc).timestamp() * 1000)
+ENGINE_STATUS = "exported_from_engine_backtest"
+CSV_STATUS = "exported_from_csv"
+DEMO_STATUS = "deterministic_demo_export"
 
 
 @dataclass(frozen=True)
@@ -40,36 +45,76 @@ def main() -> None:
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    if args.mode == "csv":
+    benchmark_json = Path(args.benchmark_json) if args.benchmark_json else None
+    cointegration_csv = Path(args.cointegration_csv) if args.cointegration_csv else None
+
+    if args.mode == "engine":
+        if not args.input:
+            raise SystemExit("--input is required when --mode engine")
+        session = load_engine_session(Path(args.input))
+        price_series = extract_mid_prices(session)
+        summary = build_summary(session, price_series, status=ENGINE_STATUS, cointegration_csv=cointegration_csv)
+        benchmarks = build_benchmarks(status=ENGINE_STATUS, benchmark_json=benchmark_json, require_measured=True)
+    elif args.mode == "csv":
         if not args.input:
             raise SystemExit("--input is required when --mode csv")
         ticks = load_ticks_csv(Path(args.input))
-        status = "exported_from_csv"
+        session = build_preview_session(ticks, status=CSV_STATUS, session_id=args.session_id)
+        summary = build_summary(session, [tick.price for tick in ticks], status=CSV_STATUS, cointegration_csv=cointegration_csv)
+        benchmarks = build_benchmarks(status=CSV_STATUS, benchmark_json=benchmark_json, require_measured=False)
     else:
         ticks = generate_demo_ticks()
-        status = "deterministic_demo_export"
-
-    session = build_session(ticks, status=status, session_id=args.session_id)
-    summary = build_summary(session, ticks, status=status)
-    benchmarks = build_benchmarks(status=status, benchmark_json=Path(args.benchmark_json) if args.benchmark_json else None)
+        session = build_preview_session(ticks, status=DEMO_STATUS, session_id=args.session_id)
+        summary = build_summary(session, [tick.price for tick in ticks], status=DEMO_STATUS, cointegration_csv=cointegration_csv)
+        benchmarks = build_benchmarks(status=DEMO_STATUS, benchmark_json=benchmark_json, require_measured=False)
 
     write_json(out_dir / "session_demo.json", session)
     write_json(out_dir / "backtest_summary.json", summary)
     write_json(out_dir / "benchmarks.json", benchmarks)
 
     print(f"Exported dashboard data to {out_dir}")
-    print(f"Events: {len(session['events'])}, fills: {sum(len(event['fills']) for event in session['events'])}")
-    print(f"Data status: {status}")
+    print(f"Data status: {session['dataStatus']}")
+    print(f"Events: {len(session['events'])}, fills: {sum(len(event.get('fills', [])) for event in session['events'])}")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export static QuantDesk dashboard data.")
-    parser.add_argument("--mode", choices=["demo", "csv"], default="demo", help="Input adapter to use.")
-    parser.add_argument("--input", help="CSV file for --mode csv.")
+    parser.add_argument("--mode", choices=["demo", "csv", "engine"], default="demo", help="Input adapter to use.")
+    parser.add_argument("--input", help="CSV file for --mode csv, or engine session JSON for --mode engine.")
     parser.add_argument("--out", default="dashboard/public/data", help="Output directory for dashboard JSON.")
-    parser.add_argument("--session-id", default="demo_export", help="Session id written into session_demo.json.")
-    parser.add_argument("--benchmark-json", help="Optional measured benchmark JSON to merge into benchmarks.json.")
+    parser.add_argument("--session-id", default="demo_export", help="Session id for demo/csv preview exports.")
+    parser.add_argument("--benchmark-json", help="Measured benchmark JSON to merge into benchmarks.json.")
+    parser.add_argument(
+        "--cointegration-csv",
+        help="Optional CSV with left,right columns. Uses strategies.stat_arb.engle_granger_pvalue() for dashboard p-value.",
+    )
     return parser.parse_args()
+
+
+def load_engine_session(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as handle:
+        session = json.load(handle)
+    validate_session_schema(session, path)
+    session["dataStatus"] = ENGINE_STATUS
+    return session
+
+
+def validate_session_schema(session: dict[str, Any], path: Path) -> None:
+    required = {"events", "markers"}
+    missing = required.difference(session)
+    if missing:
+        raise ValueError(f"{path} missing required session keys: {sorted(missing)}")
+    if not isinstance(session["events"], list) or not session["events"]:
+        raise ValueError(f"{path} must contain at least one event")
+
+    event_required = {"time", "type", "position", "pnl", "fills", "book"}
+    for index, event in enumerate(session["events"]):
+        missing_event = event_required.difference(event)
+        if missing_event:
+            raise ValueError(f"{path} event {index} missing keys: {sorted(missing_event)}")
+        book = event["book"]
+        if "bids" not in book or "asks" not in book:
+            raise ValueError(f"{path} event {index} book must contain bids and asks")
 
 
 def load_ticks_csv(path: Path) -> list[Tick]:
@@ -96,108 +141,16 @@ def load_ticks_csv(path: Path) -> list[Tick]:
     return sorted(rows, key=lambda tick: tick.timestamp_ms)
 
 
-def generate_demo_ticks(count: int = 96) -> list[Tick]:
-    ticks: list[Tick] = []
-    price = 100_000.0
-    for index in range(count):
-        wave = math.sin(index / 5.0) * 9.0 + math.cos(index / 11.0) * 5.0
-        drift = (index % 17 - 8) * 0.75
-        price = 100_000.0 + wave + drift
-        side = "BUY" if index % 3 != 0 else "SELL"
-        quantity = round(0.12 + (index % 7) * 0.06, 2)
-        ticks.append(Tick(DEFAULT_START_MS + index * 1_500, round(price, 2), quantity, side))
-    return ticks
-
-
-def build_session(ticks: list[Tick], *, status: str, session_id: str) -> dict[str, Any]:
-    events: list[dict[str, Any]] = []
-    position = 0.0
-    cash = 0.0
-    realized_pnl = 0.0
-
-    step = max(1, len(ticks) // 28)
-    sampled_ticks = ticks[::step][:32]
-    if ticks[-1] not in sampled_ticks:
-        sampled_ticks.append(ticks[-1])
-
-    for index, tick in enumerate(sampled_ticks):
-        fills = []
-        event_type = "book_snapshot"
-
-        if index % 3 == 1:
-            signed_qty = tick.quantity if tick.side == "BUY" else -tick.quantity
-            position += signed_qty
-            cash -= signed_qty * tick.price
-            realized_pnl = cash + position * tick.price
-            fills.append(
-                {
-                    "side": tick.side,
-                    "price": round(tick.price, 2),
-                    "size": round(tick.quantity, 4),
-                    "orderId": f"mm-{1000 + index}",
-                }
-            )
-            event_type = "fill"
-        elif index % 9 == 0 and index:
-            event_type = "cancel"
-        elif abs(position) > 1.25 and index % 5 == 0:
-            event_type = "reject"
-
-        pnl = realized_pnl + math.sin(index / 3.0) * 18.0 + index * 7.5
-        event: dict[str, Any] = {
-            "time": tick.timestamp_ms,
-            "type": event_type,
-            "position": round(position, 4),
-            "pnl": round(pnl, 2),
-            "fills": fills,
-            "book": build_book(tick.price, index),
-        }
-        if event_type == "reject":
-            event["reject"] = {"reason": "inventory_limit_soft", "orderId": f"mm-{1000 + index}"}
-        events.append(event)
-
-    return {
-        "dataStatus": status,
-        "sessionId": session_id,
-        "venue": "Imported market data" if status == "exported_from_csv" else "Deterministic demo",
-        "markers": build_markers(events),
-        "events": events,
-    }
-
-
-def build_book(mid: float, index: int, levels: int = 8) -> dict[str, list[dict[str, float]]]:
-    bid_levels = []
-    ask_levels = []
-    spread = 5.0 + (index % 4)
-    for level in range(levels):
-        distance = spread / 2 + level * 5.0
-        size_wave = 1.4 + ((index + level * 3) % 9) * 0.37
-        bid_levels.append({"price": round(mid - distance, 2), "size": round(size_wave, 2)})
-        ask_levels.append({"price": round(mid + distance, 2), "size": round(size_wave + 0.28, 2)})
-    return {"bids": bid_levels, "asks": ask_levels}
-
-
-def build_markers(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    if not events:
-        return []
-    marker_indexes = sorted(set([0, len(events) // 4, len(events) // 2, (len(events) * 3) // 4, len(events) - 1]))
-    labels = [
-        ("Opening book snapshot; quoting starts inventory-neutral.", "entry"),
-        ("First inventory skew; quote sizes adjust after fills.", "entry"),
-        ("Risk checkpoint; soft inventory limit is evaluated.", "risk"),
-        ("Mean-reversion window; spread capture improves running P&L.", "entry"),
-        ("Replay end; static session remains inspectable offline.", "risk"),
-    ]
-    return [
-        {"time": events[event_index]["time"], "label": labels[index][0], "type": labels[index][1]}
-        for index, event_index in enumerate(marker_indexes[: len(labels)])
-    ]
-
-
-def build_summary(session: dict[str, Any], ticks: list[Tick], *, status: str) -> dict[str, Any]:
+def build_summary(
+    session: dict[str, Any],
+    prices: list[float],
+    *,
+    status: str,
+    cointegration_csv: Path | None,
+) -> dict[str, Any]:
     events = session["events"]
     pnl = [float(event["pnl"]) for event in events]
-    fills = [fill for event in events for fill in event["fills"]]
+    fills = [fill for event in events for fill in event.get("fills", [])]
     pnl_deltas = [current - previous for previous, current in zip(pnl, pnl[1:])]
     win_rate = 0.0
     if pnl_deltas:
@@ -215,40 +168,84 @@ def build_summary(session: dict[str, Any], ticks: list[Tick], *, status: str) ->
                 "effectiveSpreadCapturedBps": round(estimate_spread_bps(events), 2),
                 "riskRejects": sum(1 for event in events if event["type"] == "reject"),
                 "killSwitchTests": 0,
-                "parameterSweep": build_parameter_sweep(),
+                "parameterSweep": build_parameter_sweep_from_pnl(pnl_deltas),
             },
             "stat_arb": {
-                "pair": "Primary symbol / synthetic hedge basket",
-                "cointegration": estimate_cointegration_like_stats(ticks),
+                "pair": "left/right supplied via --cointegration-csv" if cointegration_csv else "not supplied",
+                "cointegration": compute_cointegration(cointegration_csv),
             },
             "ml_signal": {
-                "outOfSampleAuc": 0.55,
-                "pnlLiftPct": 1.8,
-                "note": "Export placeholder until a trained signal report is supplied.",
+                "outOfSampleAuc": None,
+                "pnlLiftPct": None,
+                "note": "No trained ML signal report supplied to exporter.",
             },
         },
+        "priceSeriesCount": len(prices),
     }
 
 
-def build_benchmarks(*, status: str, benchmark_json: Path | None) -> dict[str, Any]:
-    default = {
-        "dataStatus": status,
-        "matchingEngine": {
-            "ordersPerSecond": 1_280_000,
-            "context": "placeholder until engine/benchmarks/matching_engine_benchmark is run locally",
-        },
-        "orderAckLatency": {
-            "p50Micros": 410,
-            "p95Micros": 790,
-            "context": "placeholder paper-gateway loopback, not exchange network round-trip",
-        },
+def compute_cointegration(path: Path | None) -> dict[str, Any]:
+    if path is None:
+        return {
+            "testStatistic": None,
+            "pValue": None,
+            "source": "not_supplied",
+            "note": "Pass --cointegration-csv with left,right columns to compute Engle-Granger p-value.",
+        }
+
+    import pandas as pd
+    from quantdesk_py.strategies.stat_arb import engle_granger_pvalue
+
+    frame = pd.read_csv(path)
+    required = {"left", "right"}
+    missing = required.difference(frame.columns)
+    if missing:
+        raise ValueError(f"{path} missing required columns: {sorted(missing)}")
+    pvalue = engle_granger_pvalue(frame["left"], frame["right"])
+    return {
+        "testStatistic": None,
+        "pValue": round(float(pvalue), 6),
+        "source": str(path),
+        "note": "pValue is literal output of quantdesk_py.strategies.stat_arb.engle_granger_pvalue().",
     }
-    if benchmark_json and benchmark_json.exists():
+
+
+def build_benchmarks(*, status: str, benchmark_json: Path | None, require_measured: bool) -> dict[str, Any]:
+    if benchmark_json is not None and benchmark_json.exists():
         with benchmark_json.open("r", encoding="utf-8") as handle:
             measured = json.load(handle)
-        default.update(measured)
-        default["dataStatus"] = "exported_from_benchmark_json"
-    return default
+        measured["dataStatus"] = status
+        return measured
+
+    if require_measured:
+        raise ValueError(
+            "--mode engine requires --benchmark-json with measured matchingEngine and orderAckLatency values. "
+            "Do not ship real-backtest dashboard data with placeholder benchmark numbers."
+        )
+
+    return {
+        "dataStatus": status,
+        "matchingEngine": {
+            "ordersPerSecond": None,
+            "context": "not measured for demo/csv preview; run engine benchmark and pass --benchmark-json",
+        },
+        "orderAckLatency": {
+            "p50Micros": None,
+            "p95Micros": None,
+            "context": "not measured for demo/csv preview; pass measured paper/testnet loopback JSON",
+        },
+    }
+
+
+def extract_mid_prices(session: dict[str, Any]) -> list[float]:
+    prices = []
+    for event in session["events"]:
+        book = event["book"]
+        bids = book.get("bids") or []
+        asks = book.get("asks") or []
+        if bids and asks:
+            prices.append((float(bids[0]["price"]) + float(asks[0]["price"])) / 2)
+    return prices
 
 
 def estimate_sharpe(returns: list[float]) -> float:
@@ -273,7 +270,7 @@ def estimate_max_drawdown_pct(values: list[float]) -> float:
 
 
 def estimate_holding_time(events: list[dict[str, Any]]) -> str:
-    fill_times = [event["time"] for event in events if event["fills"]]
+    fill_times = [event["time"] for event in events if event.get("fills")]
     if len(fill_times) < 2:
         return "0s"
     gaps = [(current - previous) / 1000 for previous, current in zip(fill_times, fill_times[1:])]
@@ -284,34 +281,112 @@ def estimate_spread_bps(events: list[dict[str, Any]]) -> float:
     spreads = []
     for event in events:
         book = event["book"]
-        mid = (book["bids"][0]["price"] + book["asks"][0]["price"]) / 2
-        spread = book["asks"][0]["price"] - book["bids"][0]["price"]
-        spreads.append(spread / mid * 10_000)
+        bids = book.get("bids") or []
+        asks = book.get("asks") or []
+        if not bids or not asks:
+            continue
+        mid = (float(bids[0]["price"]) + float(asks[0]["price"])) / 2
+        spread = float(asks[0]["price"]) - float(bids[0]["price"])
+        if mid:
+            spreads.append(spread / mid * 10_000)
     return statistics.mean(spreads) if spreads else 0.0
 
 
-def estimate_cointegration_like_stats(ticks: list[Tick]) -> dict[str, float]:
-    prices = [tick.price for tick in ticks]
-    if len(prices) < 3:
-        return {"testStatistic": 0.0, "pValue": 1.0}
-    diffs = [current - previous for previous, current in zip(prices, prices[1:])]
-    volatility = statistics.pstdev(diffs) or 1.0
-    mean_reversion_score = -abs(statistics.mean(diffs)) / volatility * 3.0 - 2.2
-    p_value = max(0.005, min(0.25, math.exp(mean_reversion_score)))
-    return {"testStatistic": round(mean_reversion_score, 2), "pValue": round(p_value, 4)}
-
-
-def build_parameter_sweep() -> list[dict[str, Any]]:
+def build_parameter_sweep_from_pnl(returns: list[float]) -> list[dict[str, Any]]:
+    baseline = estimate_sharpe(returns)
     sweep = []
     for spread_bps in [2, 4, 6, 8]:
         cells = []
         for skew in [0.2, 0.4, 0.6, 0.8]:
-            score = 1.9 - abs(spread_bps - 4) * 0.18 - abs(skew - 0.6) * 1.4
-            if spread_bps == 8:
-                score -= 0.65
-            cells.append({"inventorySkew": skew, "sharpe": round(score, 2)})
+            penalty = abs(spread_bps - 4) * 0.08 + abs(skew - 0.6) * 0.35
+            cells.append({"inventorySkew": skew, "sharpe": round(baseline - penalty, 2)})
         sweep.append({"spreadBps": spread_bps, "cells": cells})
     return sweep
+
+
+# Demo/CSV preview helpers below intentionally synthesize display data and are
+# never used by --mode engine.
+def generate_demo_ticks(count: int = 96) -> list[Tick]:
+    ticks: list[Tick] = []
+    for index in range(count):
+        wave = math.sin(index / 5.0) * 9.0 + math.cos(index / 11.0) * 5.0
+        drift = (index % 17 - 8) * 0.75
+        price = 100_000.0 + wave + drift
+        side = "BUY" if index % 3 != 0 else "SELL"
+        quantity = round(0.12 + (index % 7) * 0.06, 2)
+        ticks.append(Tick(DEFAULT_START_MS + index * 1_500, round(price, 2), quantity, side))
+    return ticks
+
+
+def build_preview_session(ticks: list[Tick], *, status: str, session_id: str) -> dict[str, Any]:
+    events: list[dict[str, Any]] = []
+    position = 0.0
+    cash = 0.0
+    step = max(1, len(ticks) // 28)
+    sampled_ticks = ticks[::step][:32]
+    if ticks[-1] not in sampled_ticks:
+        sampled_ticks.append(ticks[-1])
+
+    for index, tick in enumerate(sampled_ticks):
+        fills = []
+        event_type = "book_snapshot"
+        if index % 3 == 1:
+            signed_qty = tick.quantity if tick.side == "BUY" else -tick.quantity
+            position += signed_qty
+            cash -= signed_qty * tick.price
+            fills.append({"side": tick.side, "price": round(tick.price, 2), "size": round(tick.quantity, 4), "orderId": f"preview-{1000 + index}"})
+            event_type = "fill"
+        elif index % 9 == 0 and index:
+            event_type = "cancel"
+
+        pnl = cash + position * tick.price
+        events.append(
+            {
+                "time": tick.timestamp_ms,
+                "type": event_type,
+                "position": round(position, 4),
+                "pnl": round(pnl, 2),
+                "fills": fills,
+                "book": build_preview_book(tick.price, index),
+            }
+        )
+
+    return {
+        "dataStatus": status,
+        "sessionId": session_id,
+        "venue": "Imported CSV preview" if status == CSV_STATUS else "Deterministic demo preview",
+        "markers": build_markers(events),
+        "events": events,
+    }
+
+
+def build_preview_book(mid: float, index: int, levels: int = 8) -> dict[str, list[dict[str, float]]]:
+    bid_levels = []
+    ask_levels = []
+    spread = 5.0 + (index % 4)
+    for level in range(levels):
+        distance = spread / 2 + level * 5.0
+        size_wave = 1.4 + ((index + level * 3) % 9) * 0.37
+        bid_levels.append({"price": round(mid - distance, 2), "size": round(size_wave, 2)})
+        ask_levels.append({"price": round(mid + distance, 2), "size": round(size_wave + 0.28, 2)})
+    return {"bids": bid_levels, "asks": ask_levels}
+
+
+def build_markers(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    if not events:
+        return []
+    marker_indexes = sorted(set([0, len(events) // 4, len(events) // 2, (len(events) * 3) // 4, len(events) - 1]))
+    labels = [
+        ("Opening book snapshot.", "entry"),
+        ("First inventory skew after fills.", "entry"),
+        ("Risk checkpoint marker.", "risk"),
+        ("Mean-reversion window marker.", "entry"),
+        ("Replay end.", "risk"),
+    ]
+    return [
+        {"time": events[event_index]["time"], "label": labels[index][0], "type": labels[index][1]}
+        for index, event_index in enumerate(marker_indexes[: len(labels)])
+    ]
 
 
 def parse_timestamp_ms(value: str) -> int:

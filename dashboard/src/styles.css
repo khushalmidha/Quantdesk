@@ -77,6 +77,38 @@ button {
   backdrop-filter: blur(14px);
 }
 
+.data-status {
+  position: fixed;
+  right: clamp(14px, 3vw, 42px);
+  bottom: 18px;
+  z-index: 30;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(11, 15, 20, .9);
+  color: var(--text);
+  font-family: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .28);
+}
+
+.data-status.deterministic_demo_export,
+.data-status.placeholder_frontend_fixture {
+  border-color: rgba(240, 201, 106, .45);
+  color: var(--focus);
+}
+
+.data-status.exported_from_csv {
+  border-color: rgba(139, 147, 160, .55);
+  color: var(--muted);
+}
+
+.data-status.exported_from_engine_backtest {
+  border-color: rgba(63, 184, 154, .55);
+  color: var(--bid);
+}
+
 .brand-link,
 .nav-link,
 .primary-action,

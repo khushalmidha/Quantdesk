@@ -1,31 +1,31 @@
 {
   "dataStatus": "deterministic_demo_export",
   "sessionId": "demo_export",
-  "venue": "Deterministic demo",
+  "venue": "Deterministic demo preview",
   "markers": [
     {
       "time": 1784021400000,
-      "label": "Opening book snapshot; quoting starts inventory-neutral.",
+      "label": "Opening book snapshot.",
       "type": "entry"
     },
     {
       "time": 1784021436000,
-      "label": "First inventory skew; quote sizes adjust after fills.",
+      "label": "First inventory skew after fills.",
       "type": "entry"
     },
     {
       "time": 1784021472000,
-      "label": "Risk checkpoint; soft inventory limit is evaluated.",
+      "label": "Risk checkpoint marker.",
       "type": "risk"
     },
     {
       "time": 1784021508000,
-      "label": "Mean-reversion window; spread capture improves running P&L.",
+      "label": "Mean-reversion window marker.",
       "type": "entry"
     },
     {
       "time": 1784021542500,
-      "label": "Replay end; static session remains inspectable offline.",
+      "label": "Replay end.",
       "type": "risk"
     }
   ],
@@ -111,13 +111,13 @@
       "time": 1784021404500,
       "type": "fill",
       "position": -0.3,
-      "pnl": 13.39,
+      "pnl": 0.0,
       "fills": [
         {
           "side": "SELL",
           "price": 100006.15,
           "size": 0.3,
-          "orderId": "mm-1001"
+          "orderId": "preview-1001"
         }
       ],
       "book": {
@@ -195,7 +195,7 @@
       "time": 1784021409000,
       "type": "book_snapshot",
       "position": -0.3,
-      "pnl": 26.13,
+      "pnl": -1.5,
       "fills": [],
       "book": {
         "bids": [
@@ -272,7 +272,7 @@
       "time": 1784021413500,
       "type": "book_snapshot",
       "position": -0.3,
-      "pnl": 37.65,
+      "pnl": -2.03,
       "fills": [],
       "book": {
         "bids": [
@@ -349,13 +349,13 @@
       "time": 1784021418000,
       "type": "fill",
       "position": -0.72,
-      "pnl": 45.92,
+      "pnl": -1.57,
       "fills": [
         {
           "side": "SELL",
           "price": 100011.39,
           "size": 0.42,
-          "orderId": "mm-1004"
+          "orderId": "preview-1004"
         }
       ],
       "book": {
@@ -433,7 +433,7 @@
       "time": 1784021422500,
       "type": "book_snapshot",
       "position": -0.72,
-      "pnl": 53.85,
+      "pnl": 1.19,
       "fills": [],
       "book": {
         "bids": [
@@ -510,7 +510,7 @@
       "time": 1784021427000,
       "type": "book_snapshot",
       "position": -0.72,
-      "pnl": 59.8,
+      "pnl": 13.51,
       "fills": [],
       "book": {
         "bids": [
@@ -587,13 +587,13 @@
       "time": 1784021431500,
       "type": "fill",
       "position": -0.84,
-      "pnl": 81.14,
+      "pnl": 15.63,
       "fills": [
         {
           "side": "SELL",
           "price": 99987.5,
           "size": 0.12,
-          "orderId": "mm-1007"
+          "orderId": "preview-1007"
         }
       ],
       "book": {
@@ -671,7 +671,7 @@
       "time": 1784021436000,
       "type": "book_snapshot",
       "position": -0.84,
-      "pnl": 83.86,
+      "pnl": 15.7,
       "fills": [],
       "book": {
         "bids": [
@@ -748,7 +748,7 @@
       "time": 1784021440500,
       "type": "cancel",
       "position": -0.84,
-      "pnl": 85.67,
+      "pnl": 12.96,
       "fills": [],
       "book": {
         "bids": [
@@ -825,13 +825,13 @@
       "time": 1784021445000,
       "type": "fill",
       "position": -1.08,
-      "pnl": 79.5,
+      "pnl": 7.93,
       "fills": [
         {
           "side": "SELL",
           "price": 99996.66,
           "size": 0.24,
-          "orderId": "mm-1010"
+          "orderId": "preview-1010"
         }
       ],
       "book": {
@@ -909,7 +909,7 @@
       "time": 1784021449500,
       "type": "book_snapshot",
       "position": -1.08,
-      "pnl": 81.41,
+      "pnl": 0.17,
       "fills": [],
       "book": {
         "bids": [
@@ -986,7 +986,7 @@
       "time": 1784021454000,
       "type": "book_snapshot",
       "position": -1.08,
-      "pnl": 84.31,
+      "pnl": 6.82,
       "fills": [],
       "book": {
         "bids": [
@@ -1063,13 +1063,13 @@
       "time": 1784021458500,
       "type": "fill",
       "position": -1.44,
-      "pnl": 82.79,
+      "pnl": 2.02,
       "fills": [
         {
           "side": "SELL",
           "price": 100002.14,
           "size": 0.36,
-          "orderId": "mm-1013"
+          "orderId": "preview-1013"
         }
       ],
       "book": {
@@ -1147,7 +1147,7 @@
       "time": 1784021463000,
       "type": "book_snapshot",
       "position": -1.44,
-      "pnl": 89.03,
+      "pnl": -0.36,
       "fills": [],
       "book": {
         "bids": [
@@ -1222,9 +1222,9 @@
     },
     {
       "time": 1784021467500,
-      "type": "reject",
+      "type": "book_snapshot",
       "position": -1.44,
-      "pnl": 97.26,
+      "pnl": 0.71,
       "fills": [],
       "book": {
         "bids": [
@@ -1295,23 +1295,19 @@
             "size": 1.68
           }
         ]
-      },
-      "reject": {
-        "reason": "inventory_limit_soft",
-        "orderId": "mm-1015"
       }
     },
     {
       "time": 1784021472000,
       "type": "fill",
       "position": -1.92,
-      "pnl": 108.7,
+      "pnl": 3.34,
       "fills": [
         {
           "side": "SELL",
           "price": 100001.22,
           "size": 0.48,
-          "orderId": "mm-1016"
+          "orderId": "preview-1016"
         }
       ],
       "book": {
@@ -1389,7 +1385,7 @@
       "time": 1784021476500,
       "type": "book_snapshot",
       "position": -1.92,
-      "pnl": 120.43,
+      "pnl": 30.03,
       "fills": [],
       "book": {
         "bids": [
@@ -1466,7 +1462,7 @@
       "time": 1784021481000,
       "type": "cancel",
       "position": -1.92,
-      "pnl": 133.31,
+      "pnl": 27.96,
       "fills": [],
       "book": {
         "bids": [
@@ -1543,13 +1539,13 @@
       "time": 1784021485500,
       "type": "fill",
       "position": -2.1,
-      "pnl": 163.5,
+      "pnl": 20.1,
       "fills": [
         {
           "side": "SELL",
           "price": 99992.49,
           "size": 0.18,
-          "orderId": "mm-1019"
+          "orderId": "preview-1019"
         }
       ],
       "book": {
@@ -1625,9 +1621,9 @@
     },
     {
       "time": 1784021490000,
-      "type": "reject",
+      "type": "book_snapshot",
       "position": -2.1,
-      "pnl": 176.84,
+      "pnl": 5.8,
       "fills": [],
       "book": {
         "bids": [
@@ -1698,17 +1694,13 @@
             "size": 3.53
           }
         ]
-      },
-      "reject": {
-        "reason": "inventory_limit_soft",
-        "orderId": "mm-1020"
       }
     },
     {
       "time": 1784021494500,
       "type": "book_snapshot",
       "position": -2.1,
-      "pnl": 189.43,
+      "pnl": -11.52,
       "fills": [],
       "book": {
         "bids": [
@@ -1785,13 +1777,13 @@
       "time": 1784021499000,
       "type": "fill",
       "position": -2.4,
-      "pnl": 152.65,
+      "pnl": -27.97,
       "fills": [
         {
           "side": "SELL",
           "price": 100015.38,
           "size": 0.3,
-          "orderId": "mm-1022"
+          "orderId": "preview-1022"
         }
       ],
       "book": {
@@ -1869,7 +1861,7 @@
       "time": 1784021503500,
       "type": "book_snapshot",
       "position": -2.4,
-      "pnl": 162.22,
+      "pnl": -10.83,
       "fills": [],
       "book": {
         "bids": [
@@ -1946,7 +1938,7 @@
       "time": 1784021508000,
       "type": "book_snapshot",
       "position": -2.4,
-      "pnl": 169.84,
+      "pnl": -16.3,
       "fills": [],
       "book": {
         "bids": [
@@ -2023,13 +2015,13 @@
       "time": 1784021512500,
       "type": "fill",
       "position": -2.82,
-      "pnl": 189.86,
+      "pnl": -13.61,
       "fills": [
         {
           "side": "SELL",
           "price": 100009.4,
           "size": 0.42,
-          "orderId": "mm-1025"
+          "orderId": "preview-1025"
         }
       ],
       "book": {
@@ -2107,7 +2099,7 @@
       "time": 1784021517000,
       "type": "book_snapshot",
       "position": -2.82,
-      "pnl": 193.76,
+      "pnl": -3.83,
       "fills": [],
       "book": {
         "bids": [
@@ -2184,7 +2176,7 @@
       "time": 1784021521500,
       "type": "cancel",
       "position": -2.82,
-      "pnl": 196.3,
+      "pnl": 7.68,
       "fills": [],
       "book": {
         "bids": [
@@ -2261,13 +2253,13 @@
       "time": 1784021526000,
       "type": "fill",
       "position": -2.94,
-      "pnl": 227.1,
+      "pnl": 15.46,
       "fills": [
         {
           "side": "SELL",
           "price": 99999.09,
           "size": 0.12,
-          "orderId": "mm-1028"
+          "orderId": "preview-1028"
         }
       ],
       "book": {
@@ -2345,7 +2337,7 @@
       "time": 1784021530500,
       "type": "book_snapshot",
       "position": -2.94,
-      "pnl": 228.65,
+      "pnl": 53.09,
       "fills": [],
       "book": {
         "bids": [
@@ -2420,9 +2412,9 @@
     },
     {
       "time": 1784021535000,
-      "type": "reject",
+      "type": "book_snapshot",
       "position": -2.94,
-      "pnl": 230.67,
+      "pnl": 44.01,
       "fills": [],
       "book": {
         "bids": [
@@ -2493,23 +2485,19 @@
             "size": 3.9
           }
         ]
-      },
-      "reject": {
-        "reason": "inventory_limit_soft",
-        "orderId": "mm-1030"
       }
     },
     {
       "time": 1784021539500,
       "type": "fill",
       "position": -3.18,
-      "pnl": 245.94,
+      "pnl": 27.63,
       "fills": [
         {
           "side": "SELL",
           "price": 99994.95,
           "size": 0.24,
-          "orderId": "mm-1031"
+          "orderId": "preview-1031"
         }
       ],
       "book": {
@@ -2587,7 +2575,7 @@
       "time": 1784021542500,
       "type": "book_snapshot",
       "position": -3.18,
-      "pnl": 250.6,
+      "pnl": 13.73,
       "fills": [],
       "book": {
         "bids": [

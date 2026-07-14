@@ -89,6 +89,7 @@ function App() {
   return (
     <div className="site-shell">
       <Header route={route} navigate={navigate} />
+      <DataStatusBadge status={data.session.dataStatus} />
       {route === "/" && <Landing data={data} navigate={navigate} />}
       {route === "/replay" && <ReplayPage session={data.session} />}
       {route === "/backtests" && <BacktestsPage summary={data.summary} session={data.session} />}
@@ -117,13 +118,28 @@ function Header({ route, navigate }) {
   );
 }
 
+function DataStatusBadge({ status }) {
+  const labels = {
+    deterministic_demo_export: "Demo data",
+    exported_from_csv: "Imported CSV",
+    exported_from_engine_backtest: "Real backtest",
+    exported_from_benchmark_json: "Measured benchmark",
+    placeholder_frontend_fixture: "Placeholder data",
+  };
+  return (
+    <div className={`data-status ${status || "unknown"}`} role="status" aria-label={`Dashboard data status: ${labels[status] || "Unknown data"}`}>
+      {labels[status] || "Unknown data"}
+    </div>
+  );
+}
+
 function Landing({ data, navigate }) {
   const current = data.session.events[4] ?? data.session.events[0];
   const metrics = [
     { label: "Strategy Sharpe", value: data.summary.strategies.market_maker.sharpe.toFixed(2), detail: "walk-forward backtest" },
     { label: "Max Drawdown", value: `${data.summary.strategies.market_maker.maxDrawdownPct.toFixed(1)}%`, detail: "realized plus mark-to-mid" },
-    { label: "Engine Throughput", value: compact(data.benchmarks.matchingEngine.ordersPerSecond), detail: data.benchmarks.matchingEngine.context },
-    { label: "Order-to-Ack", value: `${data.benchmarks.orderAckLatency.p50Micros}us`, detail: data.benchmarks.orderAckLatency.context },
+    { label: "Engine Throughput", value: formatOptional(data.benchmarks.matchingEngine.ordersPerSecond, compact), detail: data.benchmarks.matchingEngine.context },
+    { label: "Order-to-Ack", value: formatOptional(data.benchmarks.orderAckLatency.p50Micros, (value) => `${value}us`), detail: data.benchmarks.orderAckLatency.context },
   ];
 
   return (
@@ -388,6 +404,7 @@ function MiniPnlChart({ events }) {
 function BacktestsPage({ summary, session }) {
   const mm = summary.strategies.market_maker;
   const statArb = summary.strategies.stat_arb;
+  const ml = summary.strategies.ml_signal;
   const curve = session.events.map((event) => event.pnl);
   const labels = session.events.map((event) => formatTime(event.time));
   const drawdown = runningDrawdown(curve);
@@ -403,7 +420,7 @@ function BacktestsPage({ summary, session }) {
         { label: "Win Rate", value: `${mm.winRatePct}%`, detail: `${mm.tradeCount} trades` },
         { label: "Avg Hold", value: mm.averageHoldingTime, detail: "market-maker fills" },
         { label: "Spread Captured", value: `${mm.effectiveSpreadCapturedBps} bps`, detail: "effective average" },
-        { label: "ML AUC", value: summary.strategies.ml_signal.outOfSampleAuc.toFixed(2), detail: `${summary.strategies.ml_signal.pnlLiftPct}% P&L lift in replay` },
+        { label: "ML AUC", value: formatOptional(ml.outOfSampleAuc, (value) => value.toFixed(2)), detail: ml.pnlLiftPct == null ? ml.note : `${ml.pnlLiftPct}% P&L lift in replay` },
       ]} />
       <section className="report-grid">
         <div className="data-panel chart-panel">
@@ -438,9 +455,8 @@ function BacktestsPage({ summary, session }) {
       <section className="statement">
         <h2>Cointegration Result</h2>
         <p>
-          The stat-arb pair test statistic is <span className="mono">{statArb.cointegration.testStatistic}</span> with p-value{" "}
-          <span className="mono">{statArb.cointegration.pValue}</span>. In this placeholder run, the signal is strong enough for a
-          controlled entry, but the copy stays explicit that paper/testnet results are not live-money proof.
+          The stat-arb pair test statistic is <span className="mono">{formatOptional(statArb.cointegration.testStatistic)}</span> with p-value{" "}
+          <span className="mono">{formatOptional(statArb.cointegration.pValue)}</span>. {statArb.cointegration.note || "The p-value is computed from the supplied pair series."}
         </p>
       </section>
     </main>
@@ -558,6 +574,13 @@ function formatTime(ms) {
 
 function compact(value) {
   return Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(value);
+}
+
+function formatOptional(value, formatter = (nextValue) => nextValue) {
+  if (value === null || value === undefined || Number.isNaN(value)) {
+    return "not supplied";
+  }
+  return formatter(value);
 }
 
 function midPrice(book) {

@@ -42,3 +42,27 @@ jobs:
       - name: Dashboard build
         working-directory: dashboard
         run: npm install && npm run build
+
+  dashboard-data-guard:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Block demo dashboard data on main
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          session_path = Path("dashboard/public/data/session_demo.json")
+          status = json.loads(session_path.read_text(encoding="utf-8")).get("dataStatus")
+          if status == "deterministic_demo_export":
+              raise SystemExit(
+                  "dashboard/public/data/session_demo.json is deterministic demo data. "
+                  "Export CSV or engine data before pushing to main."
+              )
+          print(f"dashboard dataStatus={status}")
+          PY

@@ -1,12 +1,12 @@
 {
   "dataStatus": "deterministic_demo_export",
   "matchingEngine": {
-    "ordersPerSecond": 1280000,
-    "context": "placeholder until engine/benchmarks/matching_engine_benchmark is run locally"
+    "ordersPerSecond": null,
+    "context": "not measured for demo/csv preview; run engine benchmark and pass --benchmark-json"
   },
   "orderAckLatency": {
-    "p50Micros": 410,
-    "p95Micros": 790,
-    "context": "placeholder paper-gateway loopback, not exchange network round-trip"
+    "p50Micros": null,
+    "p95Micros": null,
+    "context": "not measured for demo/csv preview; pass measured paper/testnet loopback JSON"
   }
 }

@@ -61,6 +61,19 @@ For normalized trade/tick CSV files with `timestamp`, `price`, `quantity`, and `
 python research/export_dashboard_data.py --mode csv --input path/to/trades.csv --out dashboard/public/data
 ```
 
+For a real engine/backtester session that already matches the dashboard event schema:
+
+```bash
+python research/export_dashboard_data.py \
+  --mode engine \
+  --input research/output/session_run.json \
+  --benchmark-json research/output/benchmarks.json \
+  --cointegration-csv research/output/cointegration_pair.csv \
+  --out dashboard/public/data
+```
+
+`--mode engine` passes through order book snapshots, fills, rejects, position, and P&L from the engine session. It does not regenerate those fields. Benchmark numbers are required in engine mode so placeholder throughput/latency cannot be shipped as real results.
+
 After exporting:
 
 ```bash
