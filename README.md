@@ -47,6 +47,31 @@ npm run build
 
 Current dashboard data is marked as `placeholder_frontend_fixture` until real engine/research exports replace it. The dashboard footer links point to the relevant folders in `https://github.com/khushalmidha/Quantdesk`.
 
+### Updating Dashboard Data
+
+The dashboard reads a stable JSON contract, but raw data can come from CSV files, exchange downloads, or engine logs. Use the exporter as the adapter layer:
+
+```bash
+python research/export_dashboard_data.py --mode demo --out dashboard/public/data
+```
+
+For normalized trade/tick CSV files with `timestamp`, `price`, `quantity`, and `side` columns:
+
+```bash
+python research/export_dashboard_data.py --mode csv --input path/to/trades.csv --out dashboard/public/data
+```
+
+After exporting:
+
+```bash
+npm --prefix dashboard run build
+git add research/export_dashboard_data.py dashboard/public/data README.md
+git commit -m "Update dashboard data export"
+git push
+```
+
+Vercel will redeploy automatically after the push.
+
 ## Build
 
 ```bash

@@ -1,12 +1,12 @@
 {
-  "dataStatus": "placeholder_frontend_fixture",
+  "dataStatus": "deterministic_demo_export",
   "matchingEngine": {
     "ordersPerSecond": 1280000,
-    "context": "engine-internal benchmark, local Ryzen 7, synthetic order flow"
+    "context": "placeholder until engine/benchmarks/matching_engine_benchmark is run locally"
   },
   "orderAckLatency": {
     "p50Micros": 410,
     "p95Micros": 790,
-    "context": "paper gateway loopback, not exchange network round-trip"
+    "context": "placeholder paper-gateway loopback, not exchange network round-trip"
   }
 }

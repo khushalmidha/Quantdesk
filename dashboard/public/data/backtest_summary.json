@@ -1,65 +1,113 @@
 {
-  "dataStatus": "placeholder_frontend_fixture",
+  "dataStatus": "deterministic_demo_export",
   "strategies": {
     "market_maker": {
-      "sharpe": 1.87,
-      "maxDrawdownPct": -4.8,
-      "winRatePct": 54.6,
-      "tradeCount": 842,
-      "averageHoldingTime": "38s",
-      "effectiveSpreadCapturedBps": 3.2,
-      "riskRejects": 4,
-      "killSwitchTests": 1,
+      "sharpe": 10.96,
+      "maxDrawdownPct": -14.68,
+      "winRatePct": 90.6,
+      "tradeCount": 11,
+      "averageHoldingTime": "14s",
+      "effectiveSpreadCapturedBps": 0.65,
+      "riskRejects": 3,
+      "killSwitchTests": 0,
       "parameterSweep": [
         {
           "spreadBps": 2,
           "cells": [
-            { "inventorySkew": 0.2, "sharpe": 0.62 },
-            { "inventorySkew": 0.4, "sharpe": 0.98 },
-            { "inventorySkew": 0.6, "sharpe": 1.21 },
-            { "inventorySkew": 0.8, "sharpe": 0.84 }
+            {
+              "inventorySkew": 0.2,
+              "sharpe": 0.98
+            },
+            {
+              "inventorySkew": 0.4,
+              "sharpe": 1.26
+            },
+            {
+              "inventorySkew": 0.6,
+              "sharpe": 1.54
+            },
+            {
+              "inventorySkew": 0.8,
+              "sharpe": 1.26
+            }
           ]
         },
         {
           "spreadBps": 4,
           "cells": [
-            { "inventorySkew": 0.2, "sharpe": 1.05 },
-            { "inventorySkew": 0.4, "sharpe": 1.74 },
-            { "inventorySkew": 0.6, "sharpe": 1.87 },
-            { "inventorySkew": 0.8, "sharpe": 1.36 }
+            {
+              "inventorySkew": 0.2,
+              "sharpe": 1.34
+            },
+            {
+              "inventorySkew": 0.4,
+              "sharpe": 1.62
+            },
+            {
+              "inventorySkew": 0.6,
+              "sharpe": 1.9
+            },
+            {
+              "inventorySkew": 0.8,
+              "sharpe": 1.62
+            }
           ]
         },
         {
           "spreadBps": 6,
           "cells": [
-            { "inventorySkew": 0.2, "sharpe": 0.77 },
-            { "inventorySkew": 0.4, "sharpe": 1.48 },
-            { "inventorySkew": 0.6, "sharpe": 1.59 },
-            { "inventorySkew": 0.8, "sharpe": 1.12 }
+            {
+              "inventorySkew": 0.2,
+              "sharpe": 0.98
+            },
+            {
+              "inventorySkew": 0.4,
+              "sharpe": 1.26
+            },
+            {
+              "inventorySkew": 0.6,
+              "sharpe": 1.54
+            },
+            {
+              "inventorySkew": 0.8,
+              "sharpe": 1.26
+            }
           ]
         },
         {
           "spreadBps": 8,
           "cells": [
-            { "inventorySkew": 0.2, "sharpe": -0.18 },
-            { "inventorySkew": 0.4, "sharpe": 0.41 },
-            { "inventorySkew": 0.6, "sharpe": 0.72 },
-            { "inventorySkew": 0.8, "sharpe": 0.29 }
+            {
+              "inventorySkew": 0.2,
+              "sharpe": -0.03
+            },
+            {
+              "inventorySkew": 0.4,
+              "sharpe": 0.25
+            },
+            {
+              "inventorySkew": 0.6,
+              "sharpe": 0.53
+            },
+            {
+              "inventorySkew": 0.8,
+              "sharpe": 0.25
+            }
           ]
         }
       ]
     },
     "stat_arb": {
-      "pair": "BTC-PERP / ETH-PERP beta-adjusted spread",
+      "pair": "Primary symbol / synthetic hedge basket",
       "cointegration": {
-        "testStatistic": -3.91,
-        "pValue": 0.018
+        "testStatistic": -2.2,
+        "pValue": 0.1105
       }
     },
     "ml_signal": {
-      "outOfSampleAuc": 0.57,
-      "pnlLiftPct": 2.4,
-      "note": "Marginal lift in placeholder walk-forward replay; not presented as production alpha."
+      "outOfSampleAuc": 0.55,
+      "pnlLiftPct": 1.8,
+      "note": "Export placeholder until a trained signal report is supplied."
     }
   }
 }
