@@ -1,0 +1,23 @@
+services:
+  engine:
+    image: gcc:13
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: ["bash", "-lc", "g++ --version && sleep infinity"]
+  orchestrator:
+    image: node:20
+    working_dir: /workspace/orchestrator
+    volumes:
+      - .:/workspace
+    command: ["bash", "-lc", "npm install && npm start"]
+    ports:
+      - "4000:4000"
+  dashboard:
+    image: node:20
+    working_dir: /workspace/dashboard
+    volumes:
+      - .:/workspace
+    command: ["bash", "-lc", "npm install && npm run dev"]
+    ports:
+      - "5173:5173"

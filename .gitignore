@@ -1,0 +1,15 @@
+build/
+dist/
+node_modules/
+*.exe
+*.obj
+*.o
+*.lib
+*.dll
+*.pdb
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example

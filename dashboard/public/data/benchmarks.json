@@ -1,0 +1,12 @@
+{
+  "dataStatus": "placeholder_frontend_fixture",
+  "matchingEngine": {
+    "ordersPerSecond": 1280000,
+    "context": "engine-internal benchmark, local Ryzen 7, synthetic order flow"
+  },
+  "orderAckLatency": {
+    "p50Micros": 410,
+    "p95Micros": 790,
+    "context": "paper gateway loopback, not exchange network round-trip"
+  }
+}

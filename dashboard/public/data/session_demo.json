@@ -1,0 +1,527 @@
+{
+  "dataStatus": "placeholder_frontend_fixture",
+  "sessionId": "demo_2026_07_14_btc_perp",
+  "venue": "Deribit testnet",
+  "markers": [
+    { "time": 1784014200000, "label": "Opening inventory neutral; quoting both sides.", "type": "entry" },
+    { "time": 1784014218000, "label": "Buy fill increases inventory; quotes skew upward.", "type": "entry" },
+    { "time": 1784014242000, "label": "Inventory crosses soft limit; risk engine narrows buy size.", "type": "risk" },
+    { "time": 1784014266000, "label": "Stat-arb exit marker; spread mean-reverts in replay.", "type": "entry" },
+    { "time": 1784014290000, "label": "Risk reject captured from event stream.", "type": "risk" }
+  ],
+  "events": [
+    {
+      "time": 1784014200000,
+      "type": "book_snapshot",
+      "position": 0,
+      "pnl": 0,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100000, "size": 2.1 },
+          { "price": 99995, "size": 2.8 },
+          { "price": 99990, "size": 3.2 },
+          { "price": 99985, "size": 1.7 },
+          { "price": 99980, "size": 4.4 },
+          { "price": 99975, "size": 3.6 },
+          { "price": 99970, "size": 5.1 },
+          { "price": 99965, "size": 2.2 }
+        ],
+        "asks": [
+          { "price": 100005, "size": 1.8 },
+          { "price": 100010, "size": 2.5 },
+          { "price": 100015, "size": 3.1 },
+          { "price": 100020, "size": 2.4 },
+          { "price": 100025, "size": 4.7 },
+          { "price": 100030, "size": 3.5 },
+          { "price": 100035, "size": 2.9 },
+          { "price": 100040, "size": 5.3 }
+        ]
+      }
+    },
+    {
+      "time": 1784014206000,
+      "type": "order",
+      "position": 0,
+      "pnl": 12,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100002, "size": 2.5 },
+          { "price": 99997, "size": 2.2 },
+          { "price": 99992, "size": 3.4 },
+          { "price": 99987, "size": 2.1 },
+          { "price": 99982, "size": 4.1 },
+          { "price": 99977, "size": 3.9 },
+          { "price": 99972, "size": 4.7 },
+          { "price": 99967, "size": 2.8 }
+        ],
+        "asks": [
+          { "price": 100007, "size": 2.0 },
+          { "price": 100012, "size": 2.2 },
+          { "price": 100017, "size": 2.8 },
+          { "price": 100022, "size": 3.0 },
+          { "price": 100027, "size": 4.3 },
+          { "price": 100032, "size": 3.7 },
+          { "price": 100037, "size": 3.1 },
+          { "price": 100042, "size": 4.9 }
+        ]
+      }
+    },
+    {
+      "time": 1784014212000,
+      "type": "fill",
+      "position": 0.35,
+      "pnl": 46,
+      "fills": [
+        { "side": "BUY", "price": 100002, "size": 0.35, "orderId": "mm-1042" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100001, "size": 1.7 },
+          { "price": 99996, "size": 2.9 },
+          { "price": 99991, "size": 3.0 },
+          { "price": 99986, "size": 2.6 },
+          { "price": 99981, "size": 4.5 },
+          { "price": 99976, "size": 3.4 },
+          { "price": 99971, "size": 4.8 },
+          { "price": 99966, "size": 2.5 }
+        ],
+        "asks": [
+          { "price": 100006, "size": 1.6 },
+          { "price": 100011, "size": 2.7 },
+          { "price": 100016, "size": 2.5 },
+          { "price": 100021, "size": 3.4 },
+          { "price": 100026, "size": 4.0 },
+          { "price": 100031, "size": 3.8 },
+          { "price": 100036, "size": 3.2 },
+          { "price": 100041, "size": 4.6 }
+        ]
+      }
+    },
+    {
+      "time": 1784014218000,
+      "type": "fill",
+      "position": 0.7,
+      "pnl": 71,
+      "fills": [
+        { "side": "BUY", "price": 100001, "size": 0.35, "orderId": "mm-1049" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 99999, "size": 1.5 },
+          { "price": 99994, "size": 3.1 },
+          { "price": 99989, "size": 3.6 },
+          { "price": 99984, "size": 2.2 },
+          { "price": 99979, "size": 4.8 },
+          { "price": 99974, "size": 3.1 },
+          { "price": 99969, "size": 5.4 },
+          { "price": 99964, "size": 2.9 }
+        ],
+        "asks": [
+          { "price": 100004, "size": 1.9 },
+          { "price": 100009, "size": 2.4 },
+          { "price": 100014, "size": 3.3 },
+          { "price": 100019, "size": 2.9 },
+          { "price": 100024, "size": 4.2 },
+          { "price": 100029, "size": 3.6 },
+          { "price": 100034, "size": 3.4 },
+          { "price": 100039, "size": 5.0 }
+        ]
+      }
+    },
+    {
+      "time": 1784014224000,
+      "type": "order",
+      "position": 0.7,
+      "pnl": 94,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100004, "size": 1.1 },
+          { "price": 99999, "size": 2.5 },
+          { "price": 99994, "size": 3.8 },
+          { "price": 99989, "size": 2.6 },
+          { "price": 99984, "size": 4.1 },
+          { "price": 99979, "size": 3.6 },
+          { "price": 99974, "size": 4.2 },
+          { "price": 99969, "size": 3.1 }
+        ],
+        "asks": [
+          { "price": 100009, "size": 2.6 },
+          { "price": 100014, "size": 2.0 },
+          { "price": 100019, "size": 3.0 },
+          { "price": 100024, "size": 2.8 },
+          { "price": 100029, "size": 4.7 },
+          { "price": 100034, "size": 3.2 },
+          { "price": 100039, "size": 3.6 },
+          { "price": 100044, "size": 4.8 }
+        ]
+      }
+    },
+    {
+      "time": 1784014230000,
+      "type": "fill",
+      "position": 0.3,
+      "pnl": 138,
+      "fills": [
+        { "side": "SELL", "price": 100009, "size": 0.4, "orderId": "mm-1057" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100006, "size": 1.9 },
+          { "price": 100001, "size": 2.2 },
+          { "price": 99996, "size": 3.1 },
+          { "price": 99991, "size": 2.9 },
+          { "price": 99986, "size": 4.4 },
+          { "price": 99981, "size": 3.7 },
+          { "price": 99976, "size": 4.5 },
+          { "price": 99971, "size": 2.7 }
+        ],
+        "asks": [
+          { "price": 100011, "size": 1.4 },
+          { "price": 100016, "size": 2.5 },
+          { "price": 100021, "size": 3.2 },
+          { "price": 100026, "size": 2.5 },
+          { "price": 100031, "size": 4.9 },
+          { "price": 100036, "size": 3.4 },
+          { "price": 100041, "size": 2.8 },
+          { "price": 100046, "size": 5.1 }
+        ]
+      }
+    },
+    {
+      "time": 1784014236000,
+      "type": "book_snapshot",
+      "position": 0.3,
+      "pnl": 119,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100010, "size": 2.0 },
+          { "price": 100005, "size": 2.8 },
+          { "price": 100000, "size": 3.5 },
+          { "price": 99995, "size": 2.1 },
+          { "price": 99990, "size": 4.0 },
+          { "price": 99985, "size": 3.8 },
+          { "price": 99980, "size": 5.0 },
+          { "price": 99975, "size": 2.6 }
+        ],
+        "asks": [
+          { "price": 100015, "size": 1.7 },
+          { "price": 100020, "size": 2.2 },
+          { "price": 100025, "size": 3.6 },
+          { "price": 100030, "size": 2.3 },
+          { "price": 100035, "size": 4.2 },
+          { "price": 100040, "size": 3.6 },
+          { "price": 100045, "size": 3.1 },
+          { "price": 100050, "size": 5.4 }
+        ]
+      }
+    },
+    {
+      "time": 1784014242000,
+      "type": "fill",
+      "position": 1.1,
+      "pnl": 102,
+      "fills": [
+        { "side": "BUY", "price": 100010, "size": 0.8, "orderId": "mm-1064" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100012, "size": 0.8 },
+          { "price": 100007, "size": 1.6 },
+          { "price": 100002, "size": 3.8 },
+          { "price": 99997, "size": 2.7 },
+          { "price": 99992, "size": 4.1 },
+          { "price": 99987, "size": 3.2 },
+          { "price": 99982, "size": 4.9 },
+          { "price": 99977, "size": 3.0 }
+        ],
+        "asks": [
+          { "price": 100017, "size": 2.4 },
+          { "price": 100022, "size": 2.8 },
+          { "price": 100027, "size": 3.1 },
+          { "price": 100032, "size": 2.2 },
+          { "price": 100037, "size": 4.6 },
+          { "price": 100042, "size": 3.3 },
+          { "price": 100047, "size": 3.7 },
+          { "price": 100052, "size": 5.0 }
+        ]
+      }
+    },
+    {
+      "time": 1784014248000,
+      "type": "order",
+      "position": 1.1,
+      "pnl": 131,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100018, "size": 0.7 },
+          { "price": 100013, "size": 1.4 },
+          { "price": 100008, "size": 2.6 },
+          { "price": 100003, "size": 2.3 },
+          { "price": 99998, "size": 4.3 },
+          { "price": 99993, "size": 3.7 },
+          { "price": 99988, "size": 4.6 },
+          { "price": 99983, "size": 2.9 }
+        ],
+        "asks": [
+          { "price": 100023, "size": 3.0 },
+          { "price": 100028, "size": 2.1 },
+          { "price": 100033, "size": 3.4 },
+          { "price": 100038, "size": 2.6 },
+          { "price": 100043, "size": 4.4 },
+          { "price": 100048, "size": 3.5 },
+          { "price": 100053, "size": 3.9 },
+          { "price": 100058, "size": 4.7 }
+        ]
+      }
+    },
+    {
+      "time": 1784014254000,
+      "type": "fill",
+      "position": 0.65,
+      "pnl": 196,
+      "fills": [
+        { "side": "SELL", "price": 100023, "size": 0.45, "orderId": "mm-1071" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100019, "size": 1.8 },
+          { "price": 100014, "size": 2.1 },
+          { "price": 100009, "size": 3.0 },
+          { "price": 100004, "size": 2.4 },
+          { "price": 99999, "size": 4.5 },
+          { "price": 99994, "size": 3.0 },
+          { "price": 99989, "size": 5.2 },
+          { "price": 99984, "size": 2.8 }
+        ],
+        "asks": [
+          { "price": 100024, "size": 1.9 },
+          { "price": 100029, "size": 2.6 },
+          { "price": 100034, "size": 3.7 },
+          { "price": 100039, "size": 2.1 },
+          { "price": 100044, "size": 4.0 },
+          { "price": 100049, "size": 3.8 },
+          { "price": 100054, "size": 3.2 },
+          { "price": 100059, "size": 5.5 }
+        ]
+      }
+    },
+    {
+      "time": 1784014260000,
+      "type": "book_snapshot",
+      "position": 0.65,
+      "pnl": 184,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100014, "size": 2.6 },
+          { "price": 100009, "size": 2.0 },
+          { "price": 100004, "size": 3.5 },
+          { "price": 99999, "size": 2.8 },
+          { "price": 99994, "size": 4.7 },
+          { "price": 99989, "size": 3.5 },
+          { "price": 99984, "size": 4.8 },
+          { "price": 99979, "size": 2.4 }
+        ],
+        "asks": [
+          { "price": 100019, "size": 2.2 },
+          { "price": 100024, "size": 2.9 },
+          { "price": 100029, "size": 3.2 },
+          { "price": 100034, "size": 2.7 },
+          { "price": 100039, "size": 4.5 },
+          { "price": 100044, "size": 3.1 },
+          { "price": 100049, "size": 3.6 },
+          { "price": 100054, "size": 5.2 }
+        ]
+      }
+    },
+    {
+      "time": 1784014266000,
+      "type": "fill",
+      "position": -0.05,
+      "pnl": 244,
+      "fills": [
+        { "side": "SELL", "price": 100019, "size": 0.7, "orderId": "mm-1080" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100011, "size": 2.2 },
+          { "price": 100006, "size": 2.7 },
+          { "price": 100001, "size": 3.3 },
+          { "price": 99996, "size": 2.6 },
+          { "price": 99991, "size": 4.4 },
+          { "price": 99986, "size": 3.6 },
+          { "price": 99981, "size": 5.0 },
+          { "price": 99976, "size": 2.5 }
+        ],
+        "asks": [
+          { "price": 100016, "size": 1.6 },
+          { "price": 100021, "size": 2.4 },
+          { "price": 100026, "size": 3.5 },
+          { "price": 100031, "size": 2.9 },
+          { "price": 100036, "size": 4.1 },
+          { "price": 100041, "size": 3.4 },
+          { "price": 100046, "size": 3.8 },
+          { "price": 100051, "size": 5.0 }
+        ]
+      }
+    },
+    {
+      "time": 1784014272000,
+      "type": "cancel",
+      "position": -0.05,
+      "pnl": 229,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 100008, "size": 2.0 },
+          { "price": 100003, "size": 2.4 },
+          { "price": 99998, "size": 3.7 },
+          { "price": 99993, "size": 2.3 },
+          { "price": 99988, "size": 4.3 },
+          { "price": 99983, "size": 3.9 },
+          { "price": 99978, "size": 4.7 },
+          { "price": 99973, "size": 2.8 }
+        ],
+        "asks": [
+          { "price": 100013, "size": 2.7 },
+          { "price": 100018, "size": 2.1 },
+          { "price": 100023, "size": 3.3 },
+          { "price": 100028, "size": 2.5 },
+          { "price": 100033, "size": 4.8 },
+          { "price": 100038, "size": 3.2 },
+          { "price": 100043, "size": 3.4 },
+          { "price": 100048, "size": 5.3 }
+        ]
+      }
+    },
+    {
+      "time": 1784014278000,
+      "type": "fill",
+      "position": 0.25,
+      "pnl": 267,
+      "fills": [
+        { "side": "BUY", "price": 100008, "size": 0.3, "orderId": "mm-1088" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100006, "size": 1.8 },
+          { "price": 100001, "size": 2.6 },
+          { "price": 99996, "size": 3.4 },
+          { "price": 99991, "size": 2.7 },
+          { "price": 99986, "size": 4.5 },
+          { "price": 99981, "size": 3.4 },
+          { "price": 99976, "size": 4.9 },
+          { "price": 99971, "size": 2.6 }
+        ],
+        "asks": [
+          { "price": 100011, "size": 1.8 },
+          { "price": 100016, "size": 2.8 },
+          { "price": 100021, "size": 3.0 },
+          { "price": 100026, "size": 2.9 },
+          { "price": 100031, "size": 4.3 },
+          { "price": 100036, "size": 3.7 },
+          { "price": 100041, "size": 3.1 },
+          { "price": 100046, "size": 5.1 }
+        ]
+      }
+    },
+    {
+      "time": 1784014284000,
+      "type": "fill",
+      "position": -0.15,
+      "pnl": 313,
+      "fills": [
+        { "side": "SELL", "price": 100011, "size": 0.4, "orderId": "mm-1094" }
+      ],
+      "book": {
+        "bids": [
+          { "price": 100003, "size": 2.3 },
+          { "price": 99998, "size": 2.5 },
+          { "price": 99993, "size": 3.1 },
+          { "price": 99988, "size": 2.8 },
+          { "price": 99983, "size": 4.0 },
+          { "price": 99978, "size": 3.8 },
+          { "price": 99973, "size": 5.2 },
+          { "price": 99968, "size": 2.9 }
+        ],
+        "asks": [
+          { "price": 100008, "size": 1.5 },
+          { "price": 100013, "size": 2.3 },
+          { "price": 100018, "size": 3.6 },
+          { "price": 100023, "size": 2.4 },
+          { "price": 100028, "size": 4.4 },
+          { "price": 100033, "size": 3.5 },
+          { "price": 100038, "size": 3.9 },
+          { "price": 100043, "size": 5.0 }
+        ]
+      }
+    },
+    {
+      "time": 1784014290000,
+      "type": "reject",
+      "position": -0.15,
+      "pnl": 302,
+      "fills": [],
+      "reject": {
+        "reason": "inventory_limit_soft",
+        "orderId": "mm-1102"
+      },
+      "book": {
+        "bids": [
+          { "price": 100000, "size": 2.9 },
+          { "price": 99995, "size": 2.0 },
+          { "price": 99990, "size": 3.5 },
+          { "price": 99985, "size": 2.1 },
+          { "price": 99980, "size": 4.7 },
+          { "price": 99975, "size": 3.3 },
+          { "price": 99970, "size": 4.8 },
+          { "price": 99965, "size": 2.6 }
+        ],
+        "asks": [
+          { "price": 100005, "size": 2.4 },
+          { "price": 100010, "size": 2.6 },
+          { "price": 100015, "size": 3.2 },
+          { "price": 100020, "size": 2.8 },
+          { "price": 100025, "size": 4.2 },
+          { "price": 100030, "size": 3.7 },
+          { "price": 100035, "size": 3.4 },
+          { "price": 100040, "size": 5.4 }
+        ]
+      }
+    },
+    {
+      "time": 1784014296000,
+      "type": "book_snapshot",
+      "position": -0.15,
+      "pnl": 336,
+      "fills": [],
+      "book": {
+        "bids": [
+          { "price": 99996, "size": 2.4 },
+          { "price": 99991, "size": 2.7 },
+          { "price": 99986, "size": 3.0 },
+          { "price": 99981, "size": 2.9 },
+          { "price": 99976, "size": 4.5 },
+          { "price": 99971, "size": 3.6 },
+          { "price": 99966, "size": 4.9 },
+          { "price": 99961, "size": 3.1 }
+        ],
+        "asks": [
+          { "price": 100001, "size": 1.9 },
+          { "price": 100006, "size": 2.2 },
+          { "price": 100011, "size": 3.5 },
+          { "price": 100016, "size": 2.7 },
+          { "price": 100021, "size": 4.6 },
+          { "price": 100026, "size": 3.4 },
+          { "price": 100031, "size": 3.7 },
+          { "price": 100036, "size": 5.2 }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+pandas>=2.2.0
+numpy>=1.26.0
+statsmodels>=0.14.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+plotly>=5.20.0
+pyzmq>=25.1.0
+pytest>=8.0.0
+black>=24.0.0
+ruff>=0.4.0

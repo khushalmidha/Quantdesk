@@ -1,0 +1,15 @@
+{
+  "name": "quantdesk-orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -e \"require('./app'); console.log('orchestrator smoke ok')\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  }
+}
