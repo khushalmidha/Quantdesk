@@ -1,13 +1,13 @@
 {
-  "dataStatus": "deterministic_demo_export",
+  "dataStatus": "exported_from_csv",
   "strategies": {
     "market_maker": {
-      "sharpe": 0.58,
-      "maxDrawdownPct": -109.25,
-      "winRatePct": 46.9,
-      "tradeCount": 11,
-      "averageHoldingTime": "14s",
-      "effectiveSpreadCapturedBps": 0.65,
+      "sharpe": -1.9,
+      "maxDrawdownPct": -128.71,
+      "winRatePct": 28.6,
+      "tradeCount": 10,
+      "averageHoldingTime": "152s",
+      "effectiveSpreadCapturedBps": 87183.55,
       "riskRejects": 0,
       "killSwitchTests": 0,
       "parameterSweep": [
@@ -16,19 +16,19 @@
           "cells": [
             {
               "inventorySkew": 0.2,
-              "sharpe": 0.28
+              "sharpe": -2.2
             },
             {
               "inventorySkew": 0.4,
-              "sharpe": 0.35
+              "sharpe": -2.13
             },
             {
               "inventorySkew": 0.6,
-              "sharpe": 0.42
+              "sharpe": -2.06
             },
             {
               "inventorySkew": 0.8,
-              "sharpe": 0.35
+              "sharpe": -2.13
             }
           ]
         },
@@ -37,19 +37,19 @@
           "cells": [
             {
               "inventorySkew": 0.2,
-              "sharpe": 0.44
+              "sharpe": -2.04
             },
             {
               "inventorySkew": 0.4,
-              "sharpe": 0.51
+              "sharpe": -1.97
             },
             {
               "inventorySkew": 0.6,
-              "sharpe": 0.58
+              "sharpe": -1.9
             },
             {
               "inventorySkew": 0.8,
-              "sharpe": 0.51
+              "sharpe": -1.97
             }
           ]
         },
@@ -58,19 +58,19 @@
           "cells": [
             {
               "inventorySkew": 0.2,
-              "sharpe": 0.28
+              "sharpe": -2.2
             },
             {
               "inventorySkew": 0.4,
-              "sharpe": 0.35
+              "sharpe": -2.13
             },
             {
               "inventorySkew": 0.6,
-              "sharpe": 0.42
+              "sharpe": -2.06
             },
             {
               "inventorySkew": 0.8,
-              "sharpe": 0.35
+              "sharpe": -2.13
             }
           ]
         },
@@ -79,19 +79,19 @@
           "cells": [
             {
               "inventorySkew": 0.2,
-              "sharpe": 0.12
+              "sharpe": -2.36
             },
             {
               "inventorySkew": 0.4,
-              "sharpe": 0.19
+              "sharpe": -2.29
             },
             {
               "inventorySkew": 0.6,
-              "sharpe": 0.26
+              "sharpe": -2.22
             },
             {
               "inventorySkew": 0.8,
-              "sharpe": 0.19
+              "sharpe": -2.29
             }
           ]
         }
@@ -112,5 +112,5 @@
       "note": "No trained ML signal report supplied to exporter."
     }
   },
-  "priceSeriesCount": 96
+  "priceSeriesCount": 10000
 }

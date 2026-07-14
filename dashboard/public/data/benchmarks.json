@@ -1,5 +1,5 @@
 {
-  "dataStatus": "deterministic_demo_export",
+  "dataStatus": "exported_from_csv",
   "matchingEngine": {
     "ordersPerSecond": null,
     "context": "not measured for demo/csv preview; run engine benchmark and pass --benchmark-json"

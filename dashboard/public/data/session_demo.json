@@ -1,37 +1,37 @@
 {
-  "dataStatus": "deterministic_demo_export",
-  "sessionId": "demo_export",
-  "venue": "Deterministic demo preview",
+  "dataStatus": "exported_from_csv",
+  "sessionId": "binance_adausdt_2025_07_14",
+  "venue": "Imported CSV preview",
   "markers": [
     {
-      "time": 1784021400000,
+      "time": 1752451200090,
       "label": "Opening book snapshot.",
       "type": "entry"
     },
     {
-      "time": 1784021436000,
+      "time": 1752451509964,
       "label": "First inventory skew after fills.",
       "type": "entry"
     },
     {
-      "time": 1784021472000,
+      "time": 1752451884856,
       "label": "Risk checkpoint marker.",
       "type": "risk"
     },
     {
-      "time": 1784021508000,
+      "time": 1752452244958,
       "label": "Mean-reversion window marker.",
       "type": "entry"
     },
     {
-      "time": 1784021542500,
+      "time": 1752452631321,
       "label": "Replay end.",
       "type": "risk"
     }
   ],
   "events": [
     {
-      "time": 1784021400000,
+      "time": 1752451200090,
       "type": "book_snapshot",
       "position": 0.0,
       "pnl": 0.0,
@@ -39,2611 +39,2296 @@
       "book": {
         "bids": [
           {
-            "price": 99996.5,
+            "price": -1.76,
             "size": 1.4
           },
           {
-            "price": 99991.5,
+            "price": -6.76,
             "size": 2.51
           },
           {
-            "price": 99986.5,
+            "price": -11.76,
             "size": 3.62
           },
           {
-            "price": 99981.5,
+            "price": -16.76,
             "size": 1.4
           },
           {
-            "price": 99976.5,
+            "price": -21.76,
             "size": 2.51
           },
           {
-            "price": 99971.5,
+            "price": -26.76,
             "size": 3.62
           },
           {
-            "price": 99966.5,
+            "price": -31.76,
             "size": 1.4
           },
           {
-            "price": 99961.5,
+            "price": -36.76,
             "size": 2.51
           }
         ],
         "asks": [
           {
-            "price": 100001.5,
+            "price": 3.24,
             "size": 1.68
           },
           {
-            "price": 100006.5,
+            "price": 8.24,
             "size": 2.79
           },
           {
-            "price": 100011.5,
+            "price": 13.24,
             "size": 3.9
           },
           {
-            "price": 100016.5,
+            "price": 18.24,
             "size": 1.68
           },
           {
-            "price": 100021.5,
+            "price": 23.24,
             "size": 2.79
           },
           {
-            "price": 100026.5,
+            "price": 28.24,
             "size": 3.9
           },
           {
-            "price": 100031.5,
+            "price": 33.24,
             "size": 1.68
           },
           {
-            "price": 100036.5,
+            "price": 38.24,
             "size": 2.79
           }
         ]
       }
     },
     {
-      "time": 1784021404500,
+      "time": 1752451264068,
       "type": "fill",
-      "position": -0.3,
+      "position": -7.5,
       "pnl": 0.0,
       "fills": [
         {
           "side": "SELL",
-          "price": 100006.15,
-          "size": 0.3,
+          "price": 0.74,
+          "size": 7.5,
           "orderId": "preview-1001"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 100003.15,
+            "price": -2.26,
             "size": 1.77
           },
           {
-            "price": 99998.15,
+            "price": -7.26,
             "size": 2.88
           },
           {
-            "price": 99993.15,
+            "price": -12.26,
             "size": 3.99
           },
           {
-            "price": 99988.15,
+            "price": -17.26,
             "size": 1.77
           },
           {
-            "price": 99983.15,
+            "price": -22.26,
             "size": 2.88
           },
           {
-            "price": 99978.15,
+            "price": -27.26,
             "size": 3.99
           },
           {
-            "price": 99973.15,
+            "price": -32.26,
             "size": 1.77
           },
           {
-            "price": 99968.15,
+            "price": -37.26,
             "size": 2.88
           }
         ],
         "asks": [
           {
-            "price": 100009.15,
+            "price": 3.74,
             "size": 2.05
           },
           {
-            "price": 100014.15,
+            "price": 8.74,
             "size": 3.16
           },
           {
-            "price": 100019.15,
+            "price": 13.74,
             "size": 4.27
           },
           {
-            "price": 100024.15,
+            "price": 18.74,
             "size": 2.05
           },
           {
-            "price": 100029.15,
+            "price": 23.74,
             "size": 3.16
           },
           {
-            "price": 100034.15,
+            "price": 28.74,
             "size": 4.27
           },
           {
-            "price": 100039.15,
+            "price": 33.74,
             "size": 2.05
           },
           {
-            "price": 100044.15,
+            "price": 38.74,
             "size": 3.16
           }
         ]
       }
     },
     {
-      "time": 1784021409000,
+      "time": 1752451300038,
       "type": "book_snapshot",
-      "position": -0.3,
-      "pnl": -1.5,
+      "position": -7.5,
+      "pnl": 0.01,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100007.66,
+            "price": -2.77,
             "size": 2.14
           },
           {
-            "price": 100002.66,
+            "price": -7.77,
             "size": 3.25
           },
           {
-            "price": 99997.66,
+            "price": -12.77,
             "size": 4.36
           },
           {
-            "price": 99992.66,
+            "price": -17.77,
             "size": 2.14
           },
           {
-            "price": 99987.66,
+            "price": -22.77,
             "size": 3.25
           },
           {
-            "price": 99982.66,
+            "price": -27.77,
             "size": 4.36
           },
           {
-            "price": 99977.66,
+            "price": -32.77,
             "size": 2.14
           },
           {
-            "price": 99972.66,
+            "price": -37.77,
             "size": 3.25
           }
         ],
         "asks": [
           {
-            "price": 100014.66,
+            "price": 4.23,
             "size": 2.42
           },
           {
-            "price": 100019.66,
+            "price": 9.23,
             "size": 3.53
           },
           {
-            "price": 100024.66,
+            "price": 14.23,
             "size": 4.64
           },
           {
-            "price": 100029.66,
+            "price": 19.23,
             "size": 2.42
           },
           {
-            "price": 100034.66,
+            "price": 24.23,
             "size": 3.53
           },
           {
-            "price": 100039.66,
+            "price": 29.23,
             "size": 4.64
           },
           {
-            "price": 100044.66,
+            "price": 34.23,
             "size": 2.42
           },
           {
-            "price": 100049.66,
+            "price": 39.23,
             "size": 3.53
           }
         ]
       }
     },
     {
-      "time": 1784021413500,
+      "time": 1752451384652,
       "type": "book_snapshot",
-      "position": -0.3,
-      "pnl": -2.03,
+      "position": -7.5,
+      "pnl": -0.0,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100008.93,
+            "price": -3.26,
             "size": 2.51
           },
           {
-            "price": 100003.93,
+            "price": -8.26,
             "size": 3.62
           },
           {
-            "price": 99998.93,
+            "price": -13.26,
             "size": 1.4
           },
           {
-            "price": 99993.93,
+            "price": -18.26,
             "size": 2.51
           },
           {
-            "price": 99988.93,
+            "price": -23.26,
             "size": 3.62
           },
           {
-            "price": 99983.93,
+            "price": -28.26,
             "size": 1.4
           },
           {
-            "price": 99978.93,
+            "price": -33.26,
             "size": 2.51
           },
           {
-            "price": 99973.93,
+            "price": -38.26,
             "size": 3.62
           }
         ],
         "asks": [
           {
-            "price": 100016.93,
+            "price": 4.74,
             "size": 2.79
           },
           {
-            "price": 100021.93,
+            "price": 9.74,
             "size": 3.9
           },
           {
-            "price": 100026.93,
+            "price": 14.74,
             "size": 1.68
           },
           {
-            "price": 100031.93,
+            "price": 19.74,
             "size": 2.79
           },
           {
-            "price": 100036.93,
+            "price": 24.74,
             "size": 3.9
           },
           {
-            "price": 100041.93,
+            "price": 29.74,
             "size": 1.68
           },
           {
-            "price": 100046.93,
+            "price": 34.74,
             "size": 2.79
           },
           {
-            "price": 100051.93,
+            "price": 39.74,
             "size": 3.9
           }
         ]
       }
     },
     {
-      "time": 1784021418000,
+      "time": 1752451418308,
       "type": "fill",
-      "position": -0.72,
-      "pnl": -1.57,
+      "position": 2.0,
+      "pnl": -0.02,
       "fills": [
         {
-          "side": "SELL",
-          "price": 100011.39,
-          "size": 0.42,
+          "side": "BUY",
+          "price": 0.74,
+          "size": 9.5,
           "orderId": "preview-1004"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 100008.89,
+            "price": -1.76,
             "size": 2.88
           },
           {
-            "price": 100003.89,
+            "price": -6.76,
             "size": 3.99
           },
           {
-            "price": 99998.89,
+            "price": -11.76,
             "size": 1.77
           },
           {
-            "price": 99993.89,
+            "price": -16.76,
             "size": 2.88
           },
           {
-            "price": 99988.89,
+            "price": -21.76,
             "size": 3.99
           },
           {
-            "price": 99983.89,
+            "price": -26.76,
             "size": 1.77
           },
           {
-            "price": 99978.89,
+            "price": -31.76,
             "size": 2.88
           },
           {
-            "price": 99973.89,
+            "price": -36.76,
             "size": 3.99
           }
         ],
         "asks": [
           {
-            "price": 100013.89,
+            "price": 3.24,
             "size": 3.16
           },
           {
-            "price": 100018.89,
+            "price": 8.24,
             "size": 4.27
           },
           {
-            "price": 100023.89,
+            "price": 13.24,
             "size": 2.05
           },
           {
-            "price": 100028.89,
+            "price": 18.24,
             "size": 3.16
           },
           {
-            "price": 100033.89,
+            "price": 23.24,
             "size": 4.27
           },
           {
-            "price": 100038.89,
+            "price": 28.24,
             "size": 2.05
           },
           {
-            "price": 100043.89,
+            "price": 33.24,
             "size": 3.16
           },
           {
-            "price": 100048.89,
+            "price": 38.24,
             "size": 4.27
           }
         ]
       }
     },
     {
-      "time": 1784021422500,
+      "time": 1752451458720,
       "type": "book_snapshot",
-      "position": -0.72,
-      "pnl": 1.19,
+      "position": 2.0,
+      "pnl": -0.02,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100004.55,
+            "price": -2.26,
             "size": 3.25
           },
           {
-            "price": 99999.55,
+            "price": -7.26,
             "size": 4.36
           },
           {
-            "price": 99994.55,
+            "price": -12.26,
             "size": 2.14
           },
           {
-            "price": 99989.55,
+            "price": -17.26,
             "size": 3.25
           },
           {
-            "price": 99984.55,
+            "price": -22.26,
             "size": 4.36
           },
           {
-            "price": 99979.55,
+            "price": -27.26,
             "size": 2.14
           },
           {
-            "price": 99974.55,
+            "price": -32.26,
             "size": 3.25
           },
           {
-            "price": 99969.55,
+            "price": -37.26,
             "size": 4.36
           }
         ],
         "asks": [
           {
-            "price": 100010.55,
+            "price": 3.74,
             "size": 3.53
           },
           {
-            "price": 100015.55,
+            "price": 8.74,
             "size": 4.64
           },
           {
-            "price": 100020.55,
+            "price": 13.74,
             "size": 2.42
           },
           {
-            "price": 100025.55,
+            "price": 18.74,
             "size": 3.53
           },
           {
-            "price": 100030.55,
+            "price": 23.74,
             "size": 4.64
           },
           {
-            "price": 100035.55,
+            "price": 28.74,
             "size": 2.42
           },
           {
-            "price": 100040.55,
+            "price": 33.74,
             "size": 3.53
           },
           {
-            "price": 100045.55,
+            "price": 38.74,
             "size": 4.64
           }
         ]
       }
     },
     {
-      "time": 1784021427000,
+      "time": 1752451486569,
       "type": "book_snapshot",
-      "position": -0.72,
-      "pnl": 13.51,
+      "position": 2.0,
+      "pnl": -0.02,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99986.94,
+            "price": -2.76,
             "size": 3.62
           },
           {
-            "price": 99981.94,
+            "price": -7.76,
             "size": 1.4
           },
           {
-            "price": 99976.94,
+            "price": -12.76,
             "size": 2.51
           },
           {
-            "price": 99971.94,
+            "price": -17.76,
             "size": 3.62
           },
           {
-            "price": 99966.94,
+            "price": -22.76,
             "size": 1.4
           },
           {
-            "price": 99961.94,
+            "price": -27.76,
             "size": 2.51
           },
           {
-            "price": 99956.94,
+            "price": -32.76,
             "size": 3.62
           },
           {
-            "price": 99951.94,
+            "price": -37.76,
             "size": 1.4
           }
         ],
         "asks": [
           {
-            "price": 99993.94,
+            "price": 4.24,
             "size": 3.9
           },
           {
-            "price": 99998.94,
+            "price": 9.24,
             "size": 1.68
           },
           {
-            "price": 100003.94,
+            "price": 14.24,
             "size": 2.79
           },
           {
-            "price": 100008.94,
+            "price": 19.24,
             "size": 3.9
           },
           {
-            "price": 100013.94,
+            "price": 24.24,
             "size": 1.68
           },
           {
-            "price": 100018.94,
+            "price": 29.24,
             "size": 2.79
           },
           {
-            "price": 100023.94,
+            "price": 34.24,
             "size": 3.9
           },
           {
-            "price": 100028.94,
+            "price": 39.24,
             "size": 1.68
           }
         ]
       }
     },
     {
-      "time": 1784021431500,
+      "time": 1752451509964,
       "type": "fill",
-      "position": -0.84,
-      "pnl": 15.63,
+      "position": -335.7,
+      "pnl": -0.02,
       "fills": [
         {
           "side": "SELL",
-          "price": 99987.5,
-          "size": 0.12,
+          "price": 0.74,
+          "size": 337.7,
           "orderId": "preview-1007"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99983.5,
+            "price": -3.26,
             "size": 3.99
           },
           {
-            "price": 99978.5,
+            "price": -8.26,
             "size": 1.77
           },
           {
-            "price": 99973.5,
+            "price": -13.26,
             "size": 2.88
           },
           {
-            "price": 99968.5,
+            "price": -18.26,
             "size": 3.99
           },
           {
-            "price": 99963.5,
+            "price": -23.26,
             "size": 1.77
           },
           {
-            "price": 99958.5,
+            "price": -28.26,
             "size": 2.88
           },
           {
-            "price": 99953.5,
+            "price": -33.26,
             "size": 3.99
           },
           {
-            "price": 99948.5,
+            "price": -38.26,
             "size": 1.77
           }
         ],
         "asks": [
           {
-            "price": 99991.5,
+            "price": 4.74,
             "size": 4.27
           },
           {
-            "price": 99996.5,
+            "price": 9.74,
             "size": 2.05
           },
           {
-            "price": 100001.5,
+            "price": 14.74,
             "size": 3.16
           },
           {
-            "price": 100006.5,
+            "price": 19.74,
             "size": 4.27
           },
           {
-            "price": 100011.5,
+            "price": 24.74,
             "size": 2.05
           },
           {
-            "price": 100016.5,
+            "price": 29.74,
             "size": 3.16
           },
           {
-            "price": 100021.5,
+            "price": 34.74,
             "size": 4.27
           },
           {
-            "price": 100026.5,
+            "price": 39.74,
             "size": 2.05
           }
         ]
       }
     },
     {
-      "time": 1784021436000,
+      "time": 1752451537288,
       "type": "book_snapshot",
-      "position": -0.84,
-      "pnl": 15.7,
+      "position": -335.7,
+      "pnl": -0.19,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99984.92,
+            "price": -1.76,
             "size": 4.36
           },
           {
-            "price": 99979.92,
+            "price": -6.76,
             "size": 2.14
           },
           {
-            "price": 99974.92,
+            "price": -11.76,
             "size": 3.25
           },
           {
-            "price": 99969.92,
+            "price": -16.76,
             "size": 4.36
           },
           {
-            "price": 99964.92,
+            "price": -21.76,
             "size": 2.14
           },
           {
-            "price": 99959.92,
+            "price": -26.76,
             "size": 3.25
           },
           {
-            "price": 99954.92,
+            "price": -31.76,
             "size": 4.36
           },
           {
-            "price": 99949.92,
+            "price": -36.76,
             "size": 2.14
           }
         ],
         "asks": [
           {
-            "price": 99989.92,
+            "price": 3.24,
             "size": 4.64
           },
           {
-            "price": 99994.92,
+            "price": 8.24,
             "size": 2.42
           },
           {
-            "price": 99999.92,
+            "price": 13.24,
             "size": 3.53
           },
           {
-            "price": 100004.92,
+            "price": 18.24,
             "size": 4.64
           },
           {
-            "price": 100009.92,
+            "price": 23.24,
             "size": 2.42
           },
           {
-            "price": 100014.92,
+            "price": 28.24,
             "size": 3.53
           },
           {
-            "price": 100019.92,
+            "price": 33.24,
             "size": 4.64
           },
           {
-            "price": 100024.92,
+            "price": 38.24,
             "size": 2.42
           }
         ]
       }
     },
     {
-      "time": 1784021440500,
+      "time": 1752451592278,
       "type": "cancel",
-      "position": -0.84,
-      "pnl": 12.96,
+      "position": -335.7,
+      "pnl": -0.02,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99987.68,
+            "price": -2.26,
             "size": 1.4
           },
           {
-            "price": 99982.68,
+            "price": -7.26,
             "size": 2.51
           },
           {
-            "price": 99977.68,
+            "price": -12.26,
             "size": 3.62
           },
           {
-            "price": 99972.68,
+            "price": -17.26,
             "size": 1.4
           },
           {
-            "price": 99967.68,
+            "price": -22.26,
             "size": 2.51
           },
           {
-            "price": 99962.68,
+            "price": -27.26,
             "size": 3.62
           },
           {
-            "price": 99957.68,
+            "price": -32.26,
             "size": 1.4
           },
           {
-            "price": 99952.68,
+            "price": -37.26,
             "size": 2.51
           }
         ],
         "asks": [
           {
-            "price": 99993.68,
+            "price": 3.74,
             "size": 1.68
           },
           {
-            "price": 99998.68,
+            "price": 8.74,
             "size": 2.79
           },
           {
-            "price": 100003.68,
+            "price": 13.74,
             "size": 3.9
           },
           {
-            "price": 100008.68,
+            "price": 18.74,
             "size": 1.68
           },
           {
-            "price": 100013.68,
+            "price": 23.74,
             "size": 2.79
           },
           {
-            "price": 100018.68,
+            "price": 28.74,
             "size": 3.9
           },
           {
-            "price": 100023.68,
+            "price": 33.74,
             "size": 1.68
           },
           {
-            "price": 100028.68,
+            "price": 38.74,
             "size": 2.79
           }
         ]
       }
     },
     {
-      "time": 1784021445000,
+      "time": 1752451651027,
       "type": "fill",
-      "position": -1.08,
-      "pnl": 7.93,
+      "position": -334.2,
+      "pnl": -0.46,
       "fills": [
         {
-          "side": "SELL",
-          "price": 99996.66,
-          "size": 0.24,
+          "side": "BUY",
+          "price": 0.74,
+          "size": 1.5,
           "orderId": "preview-1010"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99993.16,
+            "price": -2.76,
             "size": 1.77
           },
           {
-            "price": 99988.16,
+            "price": -7.76,
             "size": 2.88
           },
           {
-            "price": 99983.16,
+            "price": -12.76,
             "size": 3.99
           },
           {
-            "price": 99978.16,
+            "price": -17.76,
             "size": 1.77
           },
           {
-            "price": 99973.16,
+            "price": -22.76,
             "size": 2.88
           },
           {
-            "price": 99968.16,
+            "price": -27.76,
             "size": 3.99
           },
           {
-            "price": 99963.16,
+            "price": -32.76,
             "size": 1.77
           },
           {
-            "price": 99958.16,
+            "price": -37.76,
             "size": 2.88
           }
         ],
         "asks": [
           {
-            "price": 100000.16,
+            "price": 4.24,
             "size": 2.05
           },
           {
-            "price": 100005.16,
+            "price": 9.24,
             "size": 3.16
           },
           {
-            "price": 100010.16,
+            "price": 14.24,
             "size": 4.27
           },
           {
-            "price": 100015.16,
+            "price": 19.24,
             "size": 2.05
           },
           {
-            "price": 100020.16,
+            "price": 24.24,
             "size": 3.16
           },
           {
-            "price": 100025.16,
+            "price": 29.24,
             "size": 4.27
           },
           {
-            "price": 100030.16,
+            "price": 34.24,
             "size": 2.05
           },
           {
-            "price": 100035.16,
+            "price": 39.24,
             "size": 3.16
           }
         ]
       }
     },
     {
-      "time": 1784021449500,
+      "time": 1752451717911,
       "type": "book_snapshot",
-      "position": -1.08,
-      "pnl": 0.17,
+      "position": -334.2,
+      "pnl": 0.08,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99999.85,
+            "price": -3.26,
             "size": 2.14
           },
           {
-            "price": 99994.85,
+            "price": -8.26,
             "size": 3.25
           },
           {
-            "price": 99989.85,
+            "price": -13.26,
             "size": 4.36
           },
           {
-            "price": 99984.85,
+            "price": -18.26,
             "size": 2.14
           },
           {
-            "price": 99979.85,
+            "price": -23.26,
             "size": 3.25
           },
           {
-            "price": 99974.85,
+            "price": -28.26,
             "size": 4.36
           },
           {
-            "price": 99969.85,
+            "price": -33.26,
             "size": 2.14
           },
           {
-            "price": 99964.85,
+            "price": -38.26,
             "size": 3.25
           }
         ],
         "asks": [
           {
-            "price": 100007.85,
+            "price": 4.74,
             "size": 2.42
           },
           {
-            "price": 100012.85,
+            "price": 9.74,
             "size": 3.53
           },
           {
-            "price": 100017.85,
+            "price": 14.74,
             "size": 4.64
           },
           {
-            "price": 100022.85,
+            "price": 19.74,
             "size": 2.42
           },
           {
-            "price": 100027.85,
+            "price": 24.74,
             "size": 3.53
           },
           {
-            "price": 100032.85,
+            "price": 29.74,
             "size": 4.64
           },
           {
-            "price": 100037.85,
+            "price": 34.74,
             "size": 2.42
           },
           {
-            "price": 100042.85,
+            "price": 39.74,
             "size": 3.53
           }
         ]
       }
     },
     {
-      "time": 1784021454000,
+      "time": 1752451744614,
       "type": "book_snapshot",
-      "position": -1.08,
-      "pnl": 6.82,
+      "position": -334.2,
+      "pnl": 0.21,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99995.19,
+            "price": -1.76,
             "size": 2.51
           },
           {
-            "price": 99990.19,
+            "price": -6.76,
             "size": 3.62
           },
           {
-            "price": 99985.19,
+            "price": -11.76,
             "size": 1.4
           },
           {
-            "price": 99980.19,
+            "price": -16.76,
             "size": 2.51
           },
           {
-            "price": 99975.19,
+            "price": -21.76,
             "size": 3.62
           },
           {
-            "price": 99970.19,
+            "price": -26.76,
             "size": 1.4
           },
           {
-            "price": 99965.19,
+            "price": -31.76,
             "size": 2.51
           },
           {
-            "price": 99960.19,
+            "price": -36.76,
             "size": 3.62
           }
         ],
         "asks": [
           {
-            "price": 100000.19,
+            "price": 3.24,
             "size": 2.79
           },
           {
-            "price": 100005.19,
+            "price": 8.24,
             "size": 3.9
           },
           {
-            "price": 100010.19,
+            "price": 13.24,
             "size": 1.68
           },
           {
-            "price": 100015.19,
+            "price": 18.24,
             "size": 2.79
           },
           {
-            "price": 100020.19,
+            "price": 23.24,
             "size": 3.9
           },
           {
-            "price": 100025.19,
+            "price": 28.24,
             "size": 1.68
           },
           {
-            "price": 100030.19,
+            "price": 33.24,
             "size": 2.79
           },
           {
-            "price": 100035.19,
+            "price": 38.24,
             "size": 3.9
           }
         ]
       }
     },
     {
-      "time": 1784021458500,
+      "time": 1752451811939,
       "type": "fill",
-      "position": -1.44,
-      "pnl": 2.02,
+      "position": -324.0,
+      "pnl": 0.21,
       "fills": [
         {
-          "side": "SELL",
-          "price": 100002.14,
-          "size": 0.36,
+          "side": "BUY",
+          "price": 0.74,
+          "size": 10.2,
           "orderId": "preview-1013"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99999.14,
+            "price": -2.26,
             "size": 2.88
           },
           {
-            "price": 99994.14,
+            "price": -7.26,
             "size": 3.99
           },
           {
-            "price": 99989.14,
+            "price": -12.26,
             "size": 1.77
           },
           {
-            "price": 99984.14,
+            "price": -17.26,
             "size": 2.88
           },
           {
-            "price": 99979.14,
+            "price": -22.26,
             "size": 3.99
           },
           {
-            "price": 99974.14,
+            "price": -27.26,
             "size": 1.77
           },
           {
-            "price": 99969.14,
+            "price": -32.26,
             "size": 2.88
           },
           {
-            "price": 99964.14,
+            "price": -37.26,
             "size": 3.99
           }
         ],
         "asks": [
           {
-            "price": 100005.14,
+            "price": 3.74,
             "size": 3.16
           },
           {
-            "price": 100010.14,
+            "price": 8.74,
             "size": 4.27
           },
           {
-            "price": 100015.14,
+            "price": 13.74,
             "size": 2.05
           },
           {
-            "price": 100020.14,
+            "price": 18.74,
             "size": 3.16
           },
           {
-            "price": 100025.14,
+            "price": 23.74,
             "size": 4.27
           },
           {
-            "price": 100030.14,
+            "price": 28.74,
             "size": 2.05
           },
           {
-            "price": 100035.14,
+            "price": 33.74,
             "size": 3.16
           },
           {
-            "price": 100040.14,
+            "price": 38.74,
             "size": 4.27
           }
         ]
       }
     },
     {
-      "time": 1784021463000,
+      "time": 1752451884856,
       "type": "book_snapshot",
-      "position": -1.44,
-      "pnl": -0.36,
+      "position": -324.0,
+      "pnl": 0.15,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100000.29,
+            "price": -2.76,
             "size": 3.25
           },
           {
-            "price": 99995.29,
+            "price": -7.76,
             "size": 4.36
           },
           {
-            "price": 99990.29,
+            "price": -12.76,
             "size": 2.14
           },
           {
-            "price": 99985.29,
+            "price": -17.76,
             "size": 3.25
           },
           {
-            "price": 99980.29,
+            "price": -22.76,
             "size": 4.36
           },
           {
-            "price": 99975.29,
+            "price": -27.76,
             "size": 2.14
           },
           {
-            "price": 99970.29,
+            "price": -32.76,
             "size": 3.25
           },
           {
-            "price": 99965.29,
+            "price": -37.76,
             "size": 4.36
           }
         ],
         "asks": [
           {
-            "price": 100007.29,
+            "price": 4.24,
             "size": 3.53
           },
           {
-            "price": 100012.29,
+            "price": 9.24,
             "size": 4.64
           },
           {
-            "price": 100017.29,
+            "price": 14.24,
             "size": 2.42
           },
           {
-            "price": 100022.29,
+            "price": 19.24,
             "size": 3.53
           },
           {
-            "price": 100027.29,
+            "price": 24.24,
             "size": 4.64
           },
           {
-            "price": 100032.29,
+            "price": 29.24,
             "size": 2.42
           },
           {
-            "price": 100037.29,
+            "price": 34.24,
             "size": 3.53
           },
           {
-            "price": 100042.29,
+            "price": 39.24,
             "size": 4.64
           }
         ]
       }
     },
     {
-      "time": 1784021467500,
+      "time": 1752451956426,
       "type": "book_snapshot",
-      "position": -1.44,
-      "pnl": 0.71,
+      "position": -324.0,
+      "pnl": -0.57,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99999.05,
+            "price": -3.26,
             "size": 3.62
           },
           {
-            "price": 99994.05,
+            "price": -8.26,
             "size": 1.4
           },
           {
-            "price": 99989.05,
+            "price": -13.26,
             "size": 2.51
           },
           {
-            "price": 99984.05,
+            "price": -18.26,
             "size": 3.62
           },
           {
-            "price": 99979.05,
+            "price": -23.26,
             "size": 1.4
           },
           {
-            "price": 99974.05,
+            "price": -28.26,
             "size": 2.51
           },
           {
-            "price": 99969.05,
+            "price": -33.26,
             "size": 3.62
           },
           {
-            "price": 99964.05,
+            "price": -38.26,
             "size": 1.4
           }
         ],
         "asks": [
           {
-            "price": 100007.05,
+            "price": 4.74,
             "size": 3.9
           },
           {
-            "price": 100012.05,
+            "price": 9.74,
             "size": 1.68
           },
           {
-            "price": 100017.05,
+            "price": 14.74,
             "size": 2.79
           },
           {
-            "price": 100022.05,
+            "price": 19.74,
             "size": 3.9
           },
           {
-            "price": 100027.05,
+            "price": 24.74,
             "size": 1.68
           },
           {
-            "price": 100032.05,
+            "price": 29.74,
             "size": 2.79
           },
           {
-            "price": 100037.05,
+            "price": 34.74,
             "size": 3.9
           },
           {
-            "price": 100042.05,
+            "price": 39.74,
             "size": 1.68
           }
         ]
       }
     },
     {
-      "time": 1784021472000,
+      "time": 1752451976306,
       "type": "fill",
-      "position": -1.92,
-      "pnl": 3.34,
+      "position": -1612.2,
+      "pnl": -0.66,
       "fills": [
         {
           "side": "SELL",
-          "price": 100001.22,
-          "size": 0.48,
+          "price": 0.74,
+          "size": 1288.2,
           "orderId": "preview-1016"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99998.72,
+            "price": -1.76,
             "size": 3.99
           },
           {
-            "price": 99993.72,
+            "price": -6.76,
             "size": 1.77
           },
           {
-            "price": 99988.72,
+            "price": -11.76,
             "size": 2.88
           },
           {
-            "price": 99983.72,
+            "price": -16.76,
             "size": 3.99
           },
           {
-            "price": 99978.72,
+            "price": -21.76,
             "size": 1.77
           },
           {
-            "price": 99973.72,
+            "price": -26.76,
             "size": 2.88
           },
           {
-            "price": 99968.72,
+            "price": -31.76,
             "size": 3.99
           },
           {
-            "price": 99963.72,
+            "price": -36.76,
             "size": 1.77
           }
         ],
         "asks": [
           {
-            "price": 100003.72,
+            "price": 3.24,
             "size": 4.27
           },
           {
-            "price": 100008.72,
+            "price": 8.24,
             "size": 2.05
           },
           {
-            "price": 100013.72,
+            "price": 13.24,
             "size": 3.16
           },
           {
-            "price": 100018.72,
+            "price": 18.24,
             "size": 4.27
           },
           {
-            "price": 100023.72,
+            "price": 23.24,
             "size": 2.05
           },
           {
-            "price": 100028.72,
+            "price": 28.24,
             "size": 3.16
           },
           {
-            "price": 100033.72,
+            "price": 33.24,
             "size": 4.27
           },
           {
-            "price": 100038.72,
+            "price": 38.24,
             "size": 2.05
           }
         ]
       }
     },
     {
-      "time": 1784021476500,
+      "time": 1752452041167,
       "type": "book_snapshot",
-      "position": -1.92,
-      "pnl": 30.03,
+      "position": -1612.2,
+      "pnl": -2.28,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99984.32,
+            "price": -2.26,
             "size": 4.36
           },
           {
-            "price": 99979.32,
+            "price": -7.26,
             "size": 2.14
           },
           {
-            "price": 99974.32,
+            "price": -12.26,
             "size": 3.25
           },
           {
-            "price": 99969.32,
+            "price": -17.26,
             "size": 4.36
           },
           {
-            "price": 99964.32,
+            "price": -22.26,
             "size": 2.14
           },
           {
-            "price": 99959.32,
+            "price": -27.26,
             "size": 3.25
           },
           {
-            "price": 99954.32,
+            "price": -32.26,
             "size": 4.36
           },
           {
-            "price": 99949.32,
+            "price": -37.26,
             "size": 2.14
           }
         ],
         "asks": [
           {
-            "price": 99990.32,
+            "price": 3.74,
             "size": 4.64
           },
           {
-            "price": 99995.32,
+            "price": 8.74,
             "size": 2.42
           },
           {
-            "price": 100000.32,
+            "price": 13.74,
             "size": 3.53
           },
           {
-            "price": 100005.32,
+            "price": 18.74,
             "size": 4.64
           },
           {
-            "price": 100010.32,
+            "price": 23.74,
             "size": 2.42
           },
           {
-            "price": 100015.32,
+            "price": 28.74,
             "size": 3.53
           },
           {
-            "price": 100020.32,
+            "price": 33.74,
             "size": 4.64
           },
           {
-            "price": 100025.32,
+            "price": 38.74,
             "size": 2.42
           }
         ]
       }
     },
     {
-      "time": 1784021481000,
+      "time": 1752452094756,
       "type": "cancel",
-      "position": -1.92,
-      "pnl": 27.96,
+      "position": -1612.2,
+      "pnl": -3.24,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99984.9,
+            "price": -2.76,
             "size": 1.4
           },
           {
-            "price": 99979.9,
+            "price": -7.76,
             "size": 2.51
           },
           {
-            "price": 99974.9,
+            "price": -12.76,
             "size": 3.62
           },
           {
-            "price": 99969.9,
+            "price": -17.76,
             "size": 1.4
           },
           {
-            "price": 99964.9,
+            "price": -22.76,
             "size": 2.51
           },
           {
-            "price": 99959.9,
+            "price": -27.76,
             "size": 3.62
           },
           {
-            "price": 99954.9,
+            "price": -32.76,
             "size": 1.4
           },
           {
-            "price": 99949.9,
+            "price": -37.76,
             "size": 2.51
           }
         ],
         "asks": [
           {
-            "price": 99991.9,
+            "price": 4.24,
             "size": 1.68
           },
           {
-            "price": 99996.9,
+            "price": 9.24,
             "size": 2.79
           },
           {
-            "price": 100001.9,
+            "price": 14.24,
             "size": 3.9
           },
           {
-            "price": 100006.9,
+            "price": 19.24,
             "size": 1.68
           },
           {
-            "price": 100011.9,
+            "price": 24.24,
             "size": 2.79
           },
           {
-            "price": 100016.9,
+            "price": 29.24,
             "size": 3.9
           },
           {
-            "price": 100021.9,
+            "price": 34.24,
             "size": 1.68
           },
           {
-            "price": 100026.9,
+            "price": 39.24,
             "size": 2.79
           }
         ]
       }
     },
     {
-      "time": 1784021485500,
+      "time": 1752452135864,
       "type": "fill",
-      "position": -2.1,
-      "pnl": 20.1,
+      "position": -1622.3,
+      "pnl": -4.37,
       "fills": [
         {
           "side": "SELL",
-          "price": 99992.49,
-          "size": 0.18,
+          "price": 0.74,
+          "size": 10.1,
           "orderId": "preview-1019"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99988.49,
+            "price": -3.26,
             "size": 1.77
           },
           {
-            "price": 99983.49,
+            "price": -8.26,
             "size": 2.88
           },
           {
-            "price": 99978.49,
+            "price": -13.26,
             "size": 3.99
           },
           {
-            "price": 99973.49,
+            "price": -18.26,
             "size": 1.77
           },
           {
-            "price": 99968.49,
+            "price": -23.26,
             "size": 2.88
           },
           {
-            "price": 99963.49,
+            "price": -28.26,
             "size": 3.99
           },
           {
-            "price": 99958.49,
+            "price": -33.26,
             "size": 1.77
           },
           {
-            "price": 99953.49,
+            "price": -38.26,
             "size": 2.88
           }
         ],
         "asks": [
           {
-            "price": 99996.49,
+            "price": 4.74,
             "size": 2.05
           },
           {
-            "price": 100001.49,
+            "price": 9.74,
             "size": 3.16
           },
           {
-            "price": 100006.49,
+            "price": 14.74,
             "size": 4.27
           },
           {
-            "price": 100011.49,
+            "price": 19.74,
             "size": 2.05
           },
           {
-            "price": 100016.49,
+            "price": 24.74,
             "size": 3.16
           },
           {
-            "price": 100021.49,
+            "price": 29.74,
             "size": 4.27
           },
           {
-            "price": 100026.49,
+            "price": 34.74,
             "size": 2.05
           },
           {
-            "price": 100031.49,
+            "price": 39.74,
             "size": 3.16
           }
         ]
       }
     },
     {
-      "time": 1784021490000,
+      "time": 1752452197515,
       "type": "book_snapshot",
-      "position": -2.1,
-      "pnl": 5.8,
+      "position": -1622.3,
+      "pnl": -1.94,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99996.8,
+            "price": -1.76,
             "size": 2.14
           },
           {
-            "price": 99991.8,
+            "price": -6.76,
             "size": 3.25
           },
           {
-            "price": 99986.8,
+            "price": -11.76,
             "size": 4.36
           },
           {
-            "price": 99981.8,
+            "price": -16.76,
             "size": 2.14
           },
           {
-            "price": 99976.8,
+            "price": -21.76,
             "size": 3.25
           },
           {
-            "price": 99971.8,
+            "price": -26.76,
             "size": 4.36
           },
           {
-            "price": 99966.8,
+            "price": -31.76,
             "size": 2.14
           },
           {
-            "price": 99961.8,
+            "price": -36.76,
             "size": 3.25
           }
         ],
         "asks": [
           {
-            "price": 100001.8,
+            "price": 3.24,
             "size": 2.42
           },
           {
-            "price": 100006.8,
+            "price": 8.24,
             "size": 3.53
           },
           {
-            "price": 100011.8,
+            "price": 13.24,
             "size": 4.64
           },
           {
-            "price": 100016.8,
+            "price": 18.24,
             "size": 2.42
           },
           {
-            "price": 100021.8,
+            "price": 23.24,
             "size": 3.53
           },
           {
-            "price": 100026.8,
+            "price": 28.24,
             "size": 4.64
           },
           {
-            "price": 100031.8,
+            "price": 33.24,
             "size": 2.42
           },
           {
-            "price": 100036.8,
+            "price": 38.24,
             "size": 3.53
           }
         ]
       }
     },
     {
-      "time": 1784021494500,
+      "time": 1752452244958,
       "type": "book_snapshot",
-      "position": -2.1,
-      "pnl": -11.52,
+      "position": -1622.3,
+      "pnl": 0.49,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100004.55,
+            "price": -2.26,
             "size": 2.51
           },
           {
-            "price": 99999.55,
+            "price": -7.26,
             "size": 3.62
           },
           {
-            "price": 99994.55,
+            "price": -12.26,
             "size": 1.4
           },
           {
-            "price": 99989.55,
+            "price": -17.26,
             "size": 2.51
           },
           {
-            "price": 99984.55,
+            "price": -22.26,
             "size": 3.62
           },
           {
-            "price": 99979.55,
+            "price": -27.26,
             "size": 1.4
           },
           {
-            "price": 99974.55,
+            "price": -32.26,
             "size": 2.51
           },
           {
-            "price": 99969.55,
+            "price": -37.26,
             "size": 3.62
           }
         ],
         "asks": [
           {
-            "price": 100010.55,
+            "price": 3.74,
             "size": 2.79
           },
           {
-            "price": 100015.55,
+            "price": 8.74,
             "size": 3.9
           },
           {
-            "price": 100020.55,
+            "price": 13.74,
             "size": 1.68
           },
           {
-            "price": 100025.55,
+            "price": 18.74,
             "size": 2.79
           },
           {
-            "price": 100030.55,
+            "price": 23.74,
             "size": 3.9
           },
           {
-            "price": 100035.55,
+            "price": 28.74,
             "size": 1.68
           },
           {
-            "price": 100040.55,
+            "price": 33.74,
             "size": 2.79
           },
           {
-            "price": 100045.55,
+            "price": 38.74,
             "size": 3.9
           }
         ]
       }
     },
     {
-      "time": 1784021499000,
+      "time": 1752452300908,
       "type": "fill",
-      "position": -2.4,
-      "pnl": -27.97,
+      "position": -1635.8,
+      "pnl": -3.24,
       "fills": [
         {
           "side": "SELL",
-          "price": 100015.38,
-          "size": 0.3,
+          "price": 0.74,
+          "size": 13.5,
           "orderId": "preview-1022"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 100011.88,
+            "price": -2.76,
             "size": 2.88
           },
           {
-            "price": 100006.88,
+            "price": -7.76,
             "size": 3.99
           },
           {
-            "price": 100001.88,
+            "price": -12.76,
             "size": 1.77
           },
           {
-            "price": 99996.88,
+            "price": -17.76,
             "size": 2.88
           },
           {
-            "price": 99991.88,
+            "price": -22.76,
             "size": 3.99
           },
           {
-            "price": 99986.88,
+            "price": -27.76,
             "size": 1.77
           },
           {
-            "price": 99981.88,
+            "price": -32.76,
             "size": 2.88
           },
           {
-            "price": 99976.88,
+            "price": -37.76,
             "size": 3.99
           }
         ],
         "asks": [
           {
-            "price": 100018.88,
+            "price": 4.24,
             "size": 3.16
           },
           {
-            "price": 100023.88,
+            "price": 9.24,
             "size": 4.27
           },
           {
-            "price": 100028.88,
+            "price": 14.24,
             "size": 2.05
           },
           {
-            "price": 100033.88,
+            "price": 19.24,
             "size": 3.16
           },
           {
-            "price": 100038.88,
+            "price": 24.24,
             "size": 4.27
           },
           {
-            "price": 100043.88,
+            "price": 29.24,
             "size": 2.05
           },
           {
-            "price": 100048.88,
+            "price": 34.24,
             "size": 3.16
           },
           {
-            "price": 100053.88,
+            "price": 39.24,
             "size": 4.27
           }
         ]
       }
     },
     {
-      "time": 1784021503500,
+      "time": 1752452364701,
       "type": "book_snapshot",
-      "position": -2.4,
-      "pnl": -10.83,
+      "position": -1635.8,
+      "pnl": -3.24,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100004.24,
+            "price": -3.26,
             "size": 3.25
           },
           {
-            "price": 99999.24,
+            "price": -8.26,
             "size": 4.36
           },
           {
-            "price": 99994.24,
+            "price": -13.26,
             "size": 2.14
           },
           {
-            "price": 99989.24,
+            "price": -18.26,
             "size": 3.25
           },
           {
-            "price": 99984.24,
+            "price": -23.26,
             "size": 4.36
           },
           {
-            "price": 99979.24,
+            "price": -28.26,
             "size": 2.14
           },
           {
-            "price": 99974.24,
+            "price": -33.26,
             "size": 3.25
           },
           {
-            "price": 99969.24,
+            "price": -38.26,
             "size": 4.36
           }
         ],
         "asks": [
           {
-            "price": 100012.24,
+            "price": 4.74,
             "size": 3.53
           },
           {
-            "price": 100017.24,
+            "price": 9.74,
             "size": 4.64
           },
           {
-            "price": 100022.24,
+            "price": 14.74,
             "size": 2.42
           },
           {
-            "price": 100027.24,
+            "price": 19.74,
             "size": 3.53
           },
           {
-            "price": 100032.24,
+            "price": 24.74,
             "size": 4.64
           },
           {
-            "price": 100037.24,
+            "price": 29.74,
             "size": 2.42
           },
           {
-            "price": 100042.24,
+            "price": 34.74,
             "size": 3.53
           },
           {
-            "price": 100047.24,
+            "price": 39.74,
             "size": 4.64
           }
         ]
       }
     },
     {
-      "time": 1784021508000,
+      "time": 1752452437208,
       "type": "book_snapshot",
-      "position": -2.4,
-      "pnl": -16.3,
+      "position": -1635.8,
+      "pnl": -0.78,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100008.02,
+            "price": -1.76,
             "size": 3.62
           },
           {
-            "price": 100003.02,
+            "price": -6.76,
             "size": 1.4
           },
           {
-            "price": 99998.02,
+            "price": -11.76,
             "size": 2.51
           },
           {
-            "price": 99993.02,
+            "price": -16.76,
             "size": 3.62
           },
           {
-            "price": 99988.02,
+            "price": -21.76,
             "size": 1.4
           },
           {
-            "price": 99983.02,
+            "price": -26.76,
             "size": 2.51
           },
           {
-            "price": 99978.02,
+            "price": -31.76,
             "size": 3.62
           },
           {
-            "price": 99973.02,
+            "price": -36.76,
             "size": 1.4
           }
         ],
         "asks": [
           {
-            "price": 100013.02,
+            "price": 3.24,
             "size": 3.9
           },
           {
-            "price": 100018.02,
+            "price": 8.24,
             "size": 1.68
           },
           {
-            "price": 100023.02,
+            "price": 13.24,
             "size": 2.79
           },
           {
-            "price": 100028.02,
+            "price": 18.24,
             "size": 3.9
           },
           {
-            "price": 100033.02,
+            "price": 23.24,
             "size": 1.68
           },
           {
-            "price": 100038.02,
+            "price": 28.24,
             "size": 2.79
           },
           {
-            "price": 100043.02,
+            "price": 33.24,
             "size": 3.9
           },
           {
-            "price": 100048.02,
+            "price": 38.24,
             "size": 1.68
           }
         ]
       }
     },
     {
-      "time": 1784021512500,
+      "time": 1752452470036,
       "type": "fill",
-      "position": -2.82,
-      "pnl": -13.61,
+      "position": -1905.2,
+      "pnl": -0.95,
       "fills": [
         {
           "side": "SELL",
-          "price": 100009.4,
-          "size": 0.42,
+          "price": 0.74,
+          "size": 269.4,
           "orderId": "preview-1025"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 100006.4,
+            "price": -2.26,
             "size": 3.99
           },
           {
-            "price": 100001.4,
+            "price": -7.26,
             "size": 1.77
           },
           {
-            "price": 99996.4,
+            "price": -12.26,
             "size": 2.88
           },
           {
-            "price": 99991.4,
+            "price": -17.26,
             "size": 3.99
           },
           {
-            "price": 99986.4,
+            "price": -22.26,
             "size": 1.77
           },
           {
-            "price": 99981.4,
+            "price": -27.26,
             "size": 2.88
           },
           {
-            "price": 99976.4,
+            "price": -32.26,
             "size": 3.99
           },
           {
-            "price": 99971.4,
+            "price": -37.26,
             "size": 1.77
           }
         ],
         "asks": [
           {
-            "price": 100012.4,
+            "price": 3.74,
             "size": 4.27
           },
           {
-            "price": 100017.4,
+            "price": 8.74,
             "size": 2.05
           },
           {
-            "price": 100022.4,
+            "price": 13.74,
             "size": 3.16
           },
           {
-            "price": 100027.4,
+            "price": 18.74,
             "size": 4.27
           },
           {
-            "price": 100032.4,
+            "price": 23.74,
             "size": 2.05
           },
           {
-            "price": 100037.4,
+            "price": 28.74,
             "size": 3.16
           },
           {
-            "price": 100042.4,
+            "price": 33.74,
             "size": 4.27
           },
           {
-            "price": 100047.4,
+            "price": 38.74,
             "size": 2.05
           }
         ]
       }
     },
     {
-      "time": 1784021517000,
+      "time": 1752452486654,
       "type": "book_snapshot",
-      "position": -2.82,
-      "pnl": -3.83,
+      "position": -1905.2,
+      "pnl": 1.53,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 100002.43,
+            "price": -2.76,
             "size": 4.36
           },
           {
-            "price": 99997.43,
+            "price": -7.76,
             "size": 2.14
           },
           {
-            "price": 99992.43,
+            "price": -12.76,
             "size": 3.25
           },
           {
-            "price": 99987.43,
+            "price": -17.76,
             "size": 4.36
           },
           {
-            "price": 99982.43,
+            "price": -22.76,
             "size": 2.14
           },
           {
-            "price": 99977.43,
+            "price": -27.76,
             "size": 3.25
           },
           {
-            "price": 99972.43,
+            "price": -32.76,
             "size": 4.36
           },
           {
-            "price": 99967.43,
+            "price": -37.76,
             "size": 2.14
           }
         ],
         "asks": [
           {
-            "price": 100009.43,
+            "price": 4.24,
             "size": 4.64
           },
           {
-            "price": 100014.43,
+            "price": 9.24,
             "size": 2.42
           },
           {
-            "price": 100019.43,
+            "price": 14.24,
             "size": 3.53
           },
           {
-            "price": 100024.43,
+            "price": 19.24,
             "size": 4.64
           },
           {
-            "price": 100029.43,
+            "price": 24.24,
             "size": 2.42
           },
           {
-            "price": 100034.43,
+            "price": 29.24,
             "size": 3.53
           },
           {
-            "price": 100039.43,
+            "price": 34.24,
             "size": 4.64
           },
           {
-            "price": 100044.43,
+            "price": 39.24,
             "size": 2.42
           }
         ]
       }
     },
     {
-      "time": 1784021521500,
+      "time": 1752452571225,
       "type": "cancel",
-      "position": -2.82,
-      "pnl": 7.68,
+      "position": -1905.2,
+      "pnl": -0.37,
       "fills": [],
       "book": {
         "bids": [
           {
-            "price": 99997.85,
+            "price": -3.26,
             "size": 1.4
           },
           {
-            "price": 99992.85,
+            "price": -8.26,
             "size": 2.51
           },
           {
-            "price": 99987.85,
+            "price": -13.26,
             "size": 3.62
           },
           {
-            "price": 99982.85,
+            "price": -18.26,
             "size": 1.4
           },
           {
-            "price": 99977.85,
+            "price": -23.26,
             "size": 2.51
           },
           {
-            "price": 99972.85,
+            "price": -28.26,
             "size": 3.62
           },
           {
-            "price": 99967.85,
+            "price": -33.26,
             "size": 1.4
           },
           {
-            "price": 99962.85,
+            "price": -38.26,
             "size": 2.51
           }
         ],
         "asks": [
           {
-            "price": 100005.85,
+            "price": 4.74,
             "size": 1.68
           },
           {
-            "price": 100010.85,
+            "price": 9.74,
             "size": 2.79
           },
           {
-            "price": 100015.85,
+            "price": 14.74,
             "size": 3.9
           },
           {
-            "price": 100020.85,
+            "price": 19.74,
             "size": 1.68
           },
           {
-            "price": 100025.85,
+            "price": 24.74,
             "size": 2.79
           },
           {
-            "price": 100030.85,
+            "price": 29.74,
             "size": 3.9
           },
           {
-            "price": 100035.85,
+            "price": 34.74,
             "size": 1.68
           },
           {
-            "price": 100040.85,
+            "price": 39.74,
             "size": 2.79
           }
         ]
       }
     },
     {
-      "time": 1784021526000,
+      "time": 1752452631321,
       "type": "fill",
-      "position": -2.94,
-      "pnl": 15.46,
+      "position": -2173.2,
+      "pnl": -5.33,
       "fills": [
         {
           "side": "SELL",
-          "price": 99999.09,
-          "size": 0.12,
+          "price": 0.74,
+          "size": 268.0,
           "orderId": "preview-1028"
         }
       ],
       "book": {
         "bids": [
           {
-            "price": 99996.59,
+            "price": -1.76,
             "size": 1.77
           },
           {
-            "price": 99991.59,
+            "price": -6.76,
             "size": 2.88
           },
           {
-            "price": 99986.59,
+            "price": -11.76,
             "size": 3.99
           },
           {
-            "price": 99981.59,
+            "price": -16.76,
             "size": 1.77
           },
           {
-            "price": 99976.59,
+            "price": -21.76,
             "size": 2.88
           },
           {
-            "price": 99971.59,
+            "price": -26.76,
             "size": 3.99
           },
           {
-            "price": 99966.59,
+            "price": -31.76,
             "size": 1.77
           },
           {
-            "price": 99961.59,
+            "price": -36.76,
             "size": 2.88
           }
         ],
         "asks": [
           {
-            "price": 100001.59,
+            "price": 3.24,
             "size": 2.05
           },
           {
-            "price": 100006.59,
+            "price": 8.24,
             "size": 3.16
           },
           {
-            "price": 100011.59,
+            "price": 13.24,
             "size": 4.27
           },
           {
-            "price": 100016.59,
+            "price": 18.24,
             "size": 2.05
           },
           {
-            "price": 100021.59,
+            "price": 23.24,
             "size": 3.16
           },
           {
-            "price": 100026.59,
+            "price": 28.24,
             "size": 4.27
           },
           {
-            "price": 100031.59,
+            "price": 33.24,
             "size": 2.05
           },
           {
-            "price": 100036.59,
+            "price": 38.24,
             "size": 3.16
-          }
-        ]
-      }
-    },
-    {
-      "time": 1784021530500,
-      "type": "book_snapshot",
-      "position": -2.94,
-      "pnl": 53.09,
-      "fills": [],
-      "book": {
-        "bids": [
-          {
-            "price": 99983.29,
-            "size": 2.14
-          },
-          {
-            "price": 99978.29,
-            "size": 3.25
-          },
-          {
-            "price": 99973.29,
-            "size": 4.36
-          },
-          {
-            "price": 99968.29,
-            "size": 2.14
-          },
-          {
-            "price": 99963.29,
-            "size": 3.25
-          },
-          {
-            "price": 99958.29,
-            "size": 4.36
-          },
-          {
-            "price": 99953.29,
-            "size": 2.14
-          },
-          {
-            "price": 99948.29,
-            "size": 3.25
-          }
-        ],
-        "asks": [
-          {
-            "price": 99989.29,
-            "size": 2.42
-          },
-          {
-            "price": 99994.29,
-            "size": 3.53
-          },
-          {
-            "price": 99999.29,
-            "size": 4.64
-          },
-          {
-            "price": 100004.29,
-            "size": 2.42
-          },
-          {
-            "price": 100009.29,
-            "size": 3.53
-          },
-          {
-            "price": 100014.29,
-            "size": 4.64
-          },
-          {
-            "price": 100019.29,
-            "size": 2.42
-          },
-          {
-            "price": 100024.29,
-            "size": 3.53
-          }
-        ]
-      }
-    },
-    {
-      "time": 1784021535000,
-      "type": "book_snapshot",
-      "position": -2.94,
-      "pnl": 44.01,
-      "fills": [],
-      "book": {
-        "bids": [
-          {
-            "price": 99985.88,
-            "size": 2.51
-          },
-          {
-            "price": 99980.88,
-            "size": 3.62
-          },
-          {
-            "price": 99975.88,
-            "size": 1.4
-          },
-          {
-            "price": 99970.88,
-            "size": 2.51
-          },
-          {
-            "price": 99965.88,
-            "size": 3.62
-          },
-          {
-            "price": 99960.88,
-            "size": 1.4
-          },
-          {
-            "price": 99955.88,
-            "size": 2.51
-          },
-          {
-            "price": 99950.88,
-            "size": 3.62
-          }
-        ],
-        "asks": [
-          {
-            "price": 99992.88,
-            "size": 2.79
-          },
-          {
-            "price": 99997.88,
-            "size": 3.9
-          },
-          {
-            "price": 100002.88,
-            "size": 1.68
-          },
-          {
-            "price": 100007.88,
-            "size": 2.79
-          },
-          {
-            "price": 100012.88,
-            "size": 3.9
-          },
-          {
-            "price": 100017.88,
-            "size": 1.68
-          },
-          {
-            "price": 100022.88,
-            "size": 2.79
-          },
-          {
-            "price": 100027.88,
-            "size": 3.9
-          }
-        ]
-      }
-    },
-    {
-      "time": 1784021539500,
-      "type": "fill",
-      "position": -3.18,
-      "pnl": 27.63,
-      "fills": [
-        {
-          "side": "SELL",
-          "price": 99994.95,
-          "size": 0.24,
-          "orderId": "preview-1031"
-        }
-      ],
-      "book": {
-        "bids": [
-          {
-            "price": 99990.95,
-            "size": 2.88
-          },
-          {
-            "price": 99985.95,
-            "size": 3.99
-          },
-          {
-            "price": 99980.95,
-            "size": 1.77
-          },
-          {
-            "price": 99975.95,
-            "size": 2.88
-          },
-          {
-            "price": 99970.95,
-            "size": 3.99
-          },
-          {
-            "price": 99965.95,
-            "size": 1.77
-          },
-          {
-            "price": 99960.95,
-            "size": 2.88
-          },
-          {
-            "price": 99955.95,
-            "size": 3.99
-          }
-        ],
-        "asks": [
-          {
-            "price": 99998.95,
-            "size": 3.16
-          },
-          {
-            "price": 100003.95,
-            "size": 4.27
-          },
-          {
-            "price": 100008.95,
-            "size": 2.05
-          },
-          {
-            "price": 100013.95,
-            "size": 3.16
-          },
-          {
-            "price": 100018.95,
-            "size": 4.27
-          },
-          {
-            "price": 100023.95,
-            "size": 2.05
-          },
-          {
-            "price": 100028.95,
-            "size": 3.16
-          },
-          {
-            "price": 100033.95,
-            "size": 4.27
-          }
-        ]
-      }
-    },
-    {
-      "time": 1784021542500,
-      "type": "book_snapshot",
-      "position": -3.18,
-      "pnl": 13.73,
-      "fills": [],
-      "book": {
-        "bids": [
-          {
-            "price": 99996.82,
-            "size": 3.25
-          },
-          {
-            "price": 99991.82,
-            "size": 4.36
-          },
-          {
-            "price": 99986.82,
-            "size": 2.14
-          },
-          {
-            "price": 99981.82,
-            "size": 3.25
-          },
-          {
-            "price": 99976.82,
-            "size": 4.36
-          },
-          {
-            "price": 99971.82,
-            "size": 2.14
-          },
-          {
-            "price": 99966.82,
-            "size": 3.25
-          },
-          {
-            "price": 99961.82,
-            "size": 4.36
-          }
-        ],
-        "asks": [
-          {
-            "price": 100001.82,
-            "size": 3.53
-          },
-          {
-            "price": 100006.82,
-            "size": 4.64
-          },
-          {
-            "price": 100011.82,
-            "size": 2.42
-          },
-          {
-            "price": 100016.82,
-            "size": 3.53
-          },
-          {
-            "price": 100021.82,
-            "size": 4.64
-          },
-          {
-            "price": 100026.82,
-            "size": 2.42
-          },
-          {
-            "price": 100031.82,
-            "size": 3.53
-          },
-          {
-            "price": 100036.82,
-            "size": 4.64
           }
         ]
       }

@@ -13,3 +13,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.tmp_*/
+*.zip
+research/input/
+research/output/
