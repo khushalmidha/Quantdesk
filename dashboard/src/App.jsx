@@ -118,7 +118,7 @@ function Header({ route, navigate }) {
 }
 
 function Landing({ data, navigate }) {
-  const current = data.session.events[4];
+  const current = data.session.events[4] ?? data.session.events[0];
   const metrics = [
     { label: "Strategy Sharpe", value: data.summary.strategies.market_maker.sharpe.toFixed(2), detail: "walk-forward backtest" },
     { label: "Max Drawdown", value: `${data.summary.strategies.market_maker.maxDrawdownPct.toFixed(1)}%`, detail: "realized plus mark-to-mid" },
